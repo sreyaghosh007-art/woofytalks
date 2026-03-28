@@ -205,8 +205,9 @@ var myHashnodeUsername = 'woofytalks';
 async function loadBlogPosts() {
   const blogGrid = document.getElementById('blog-grid');
   try {
-    const FEED_URL = 'https://woofytalks.blogspot.com/feeds/posts/default?alt=json&max-results=6';
-    const response = await fetch(FEED_URL);
+    const BLOGGER_FEED = 'https://woofytalks.blogspot.com/feeds/posts/default?alt=json&max-results=6';
+    const PROXY = 'https://corsproxy.io/?' + encodeURIComponent(BLOGGER_FEED);
+    const response = await fetch(PROXY);
     if (!response.ok) throw new Error('Feed error');
     const data = await response.json();
     const entries = data.feed.entry;
