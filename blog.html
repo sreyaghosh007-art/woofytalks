@@ -205,13 +205,28 @@ var myHashnodeUsername = 'woofytalks';
 async function loadBlogPosts() {
   const blogGrid = document.getElementById('blog-grid');
   try {
+    // Try multiple proxies in sequence until one works
     const BLOGGER_FEED = 'https://woofytalks.blogspot.com/feeds/posts/default?alt=json&max-results=6';
-    const PROXY = 'https://corsproxy.io/?' + encodeURIComponent(BLOGGER_FEED);
-    const response = await fetch(PROXY);
-    if (!response.ok) throw new Error('Feed error');
-    const data = await response.json();
+    const proxies = [
+      'https://corsproxy.io/?' + encodeURIComponent(BLOGGER_FEED),
+      'https://api.allorigins.win/raw?url=' + encodeURIComponent(BLOGGER_FEED),
+      'https://thingproxy.freeboard.io/fetch/' + BLOGGER_FEED,
+    ];
+
+    let data = null;
+    for (const proxy of proxies) {
+      try {
+        const res = await fetch(proxy);
+        if (res.ok) {
+          data = await res.json();
+          if (data && data.feed) break;
+        }
+      } catch(e) { continue; }
+    }
+
+    if (!data || !data.feed || !data.feed.entry) { showNoPosts(); return; }
+
     const entries = data.feed.entry;
-    if (!entries || entries.length === 0) { showNoPosts(); return; }
     blogGrid.innerHTML = entries.map(post => {
       const title = post.title.$t;
       const linkObj = post.link.find(l => l.rel === 'alternate');
@@ -255,7 +270,7 @@ async function loadBlogPosts() {
       `;
     }).join('');
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Blog load error:', error);
     showNoPosts();
   }
 }o
