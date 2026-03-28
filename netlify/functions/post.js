@@ -1,35 +1,94 @@
-exports.handler = async function(event) {
-  const url = event.queryStringParameters && event.queryStringParameters.url;
-  if (!url || !url.includes('blogspot.com')) {
-    return { statusCode: 400, body: JSON.stringify({ error: 'Invalid URL' }) };
-  }
+const fetch = require('node-fetch');
+const { JSDOM } = require('jsdom');
+
+exports.handler = async function(event, context) {
   try {
+    const url = event.queryStringParameters.url;
+    
+    if (!url) {
+      return {
+        statusCode: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ error: 'URL parameter required' })
+      };
+    }
+    
+    // Fetch the Blogger post page
     const response = await fetch(url);
     const html = await response.text();
     
+    // Parse HTML to extract content
+    const dom = new JSDOM(html);
+    const document = dom.window.document;
+    
     // Extract title
-    const titleMatch = html.match(/<h1[^>]*class="[^"]*entry-title[^"]*"[^>]*>(.*?)<\/h1>/s) ||
-                       html.match(/<title>(.*?)<\/title>/s);
-    const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').replace(' | Woofy Talks','').trim() : 'Blog Post';
-
-    // Extract content
-    const contentMatch = html.match(/<div[^>]*class="[^"]*entry-content[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<div[^>]*class="[^"]*post-footer/s);
-    const content = contentMatch ? contentMatch[1].trim() : '<p>Could not load post content.</p>';
-
+    let title = '';
+    const titleElement = document.querySelector('.post-title, h1.entry-title, h3.post-title');
+    if (titleElement) {
+      title = titleElement.textContent.trim();
+    }
+    
     // Extract date
-    const dateMatch = html.match(/<abbr[^>]*class="[^"]*published[^"]*"[^>]*title="([^"]*)"/) ||
-                      html.match(/class="date-header"[^>]*>(.*?)<\/span>/s);
-    const date = dateMatch ? dateMatch[1] : '';
-
+    let date = '';
+    const dateElement = document.querySelector('.published, .post-timestamp, time');
+    if (dateElement) {
+      const dateText = dateElement.textContent.trim();
+      try {
+        const pubDate = new Date(dateElement.getAttribute('datetime') || dateText);
+        date = pubDate.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+      } catch (e) {
+        date = dateText;
+      }
+    }
+    
+    // Extract content
+    let content = '';
+    const contentElement = document.querySelector('.post-body, .entry-content, article .post-content');
+    if (contentElement) {
+      // Clean up the content - remove unwanted elements
+      const cloned = contentElement.cloneNode(true);
+      
+      // Remove script tags, style tags, and other unwanted elements
+      const unwanted = cloned.querySelectorAll('script, style, .post-footer, .post-share-buttons');
+      unwanted.forEach(el => el.remove());
+      
+      content = cloned.innerHTML;
+      
+      // Clean up some common Blogger artifacts
+      content = content
+        .replace(/\s+/g, ' ')
+        .replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '</p><p>')
+        .trim();
+    }
+    
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify({ title, content, date })
+      body: JSON.stringify({
+        title: title,
+        date: date,
+        content: content
+      })
     };
-  } catch(err) {
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({ error: 'Failed to fetch post content' })
+    };
   }
 };
