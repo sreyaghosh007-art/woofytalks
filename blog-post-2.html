@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Blog | WoofyTalks</title>
-<meta name="description" content="Stories, tips, and heartfelt moments from the world of dog parenting. By Sreya Kaur and Sherry.">
+<title>The Walk Is More Than Exercise | WoofyTalks Blog</title>
+<meta name="description" content="We think the walk is about burning energy. But dogs experience it as something much deeper — a ritual of trust, leadership, and connection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -11,26 +11,23 @@
   --orange:#FF8A4C; --orange-d:#D96A2A; --orange-l:#FFF0E6;
   --truffle:#2A1A0E; --truffle-l:#4A3020;
   --cream:#FFF8F2; --cream2:#FDF5EC;
-  --sand:#E8D5C0; --sand-d:#C9B49A;
-  --green:#5AAF78; --green-l:#EAF7EF;
-  --gold:#C4860A; --gold-l:#FEF7E0;
-  --blush:#E85572; --blush-l:#FDEEF2;
-  --sky:#3A9FCC; --sky-l:#E8F5FC;
+  --sand:#E8D5C0;
   --muted:#6B4F38; --lighter:#9A7A64;
   --border:#E8D5C0;
   --fh:'Fraunces',Georgia,serif;
   --fb:'Nunito',sans-serif;
   --fk:'Caveat',cursive;
-  --radius:16px; --radius-lg:24px;
+  --radius-lg:24px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
+a{text-decoration:none;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--fb);background:var(--cream);color:var(--truffle);overflow-x:hidden;}
 
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(255,248,242,0.97);backdrop-filter:blur(20px);border-bottom:1.5px solid var(--border);transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-brand{display:flex;align-items:center;text-decoration:none;}
 .nav-logo{height:62px;object-fit:contain;flex-shrink:0;}
 .nav-name{font-size:18px;letter-spacing:-0.2px;display:flex;align-items:baseline;gap:1px;}
 .nav-name .n1{font-family:var(--fh);font-weight:700;color:var(--truffle);font-size:18px;}
@@ -41,48 +38,90 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--orange);background:var(--orange-l);}
 .nav-links>li>a .chev{transition:transform .2s;width:12px;height:12px;flex-shrink:0;}
 .nav-links>li:hover>a .chev{transform:rotate(180deg);}
-.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px;min-width:200px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:6px;min-width:200px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
 .nav-links>li:hover .dropdown{display:block;}
 .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--truffle);font-size:14px;font-weight:700;transition:all .2s;}
 .dropdown a:hover{background:var(--orange-l);color:var(--orange);}
 .dropdown-hr{height:1px;background:var(--border);margin:4px 8px;}
-.soon-tag{font-size:10px;font-weight:800;background:var(--gold-l);color:var(--gold);padding:2px 8px;border-radius:20px;margin-left:auto;}
+.soon-tag{font-size:10px;font-weight:800;background:#FEF7E0;color:#C4860A;padding:2px 8px;border-radius:20px;margin-left:auto;}
 
-/* ── HERO ── */
-.hero{min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 72px;background:linear-gradient(135deg,var(--cream) 0%,var(--cream2) 50%,var(--orange-l) 100%);position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:560px;height:560px;background:radial-gradient(circle,rgba(255,138,76,0.09),transparent 70%);border-radius:50%;}
-.hero-content{position:relative;z-index:1;max-width:720px;}
-.hero-tag{font-family:var(--fk);font-size:20px;color:var(--orange);margin-bottom:10px;}
-.hero h1{font-family:var(--fh);font-size:52px;font-weight:900;line-height:1.1;margin-bottom:16px;color:var(--truffle);}
-.hero p{font-size:17px;color:var(--muted);line-height:1.6;max-width:580px;margin:0 auto;}
+/* BREADCRUMB */
+.breadcrumb{padding:100px 20px 0;max-width:780px;margin:0 auto;}
+.breadcrumb a{font-size:14px;color:var(--orange);text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.breadcrumb a:hover{gap:10px;}
 
-/* ── SECTION LABEL ── */
-.section-label{text-align:center;padding:64px 20px 40px;}
-.section-label h2{font-family:var(--fh);font-size:34px;font-weight:700;margin-bottom:10px;color:var(--truffle);}
-.section-label p{font-size:16px;color:var(--muted);}
+/* POST WRAPPER */
+.post-wrapper{max-width:780px;margin:0 auto;padding:36px 20px 100px;}
 
-/* ── BLOG CARD GRID ── */
-.blog-section{padding:0 40px 100px;max-width:1400px;margin:0 auto;}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px;}
+/* HERO IMAGE */
+.post-hero-img{width:100%;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:36px;}
+.post-hero-img img{width:100%;height:440px;object-fit:cover;display:block;}
 
-.blog-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;border:1.5px solid var(--border);transition:all .3s;cursor:pointer;text-decoration:none;display:block;color:inherit;}
-.blog-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(42,26,14,.13);border-color:var(--orange);}
+/* POST META */
+.post-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:var(--lighter);margin-bottom:40px;flex-wrap:wrap;}
+.post-meta span{display:flex;align-items:center;gap:5px;}
+.post-tag{background:var(--orange-l);color:var(--orange-d);font-weight:700;padding:4px 14px;border-radius:50px;font-size:13px;}
 
-.blog-img-wrap{width:100%;height:230px;overflow:hidden;position:relative;}
-.blog-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
-.blog-card:hover .blog-img-wrap img{transform:scale(1.04);}
+/* ARTICLE BODY */
+.post-body h2{
+  font-family:var(--fh);
+  font-size:26px;
+  font-weight:700;
+  color:var(--orange);
+  margin:0 0 14px;
+  line-height:1.25;
+}
+.post-body h3{
+  font-family:var(--fh);
+  font-size:18px;
+  font-weight:700;
+  color:#000;
+  margin:36px 0 8px;
+  line-height:1.3;
+}
+.post-body h4{
+  font-family:var(--fh);
+  font-size:15px;
+  font-weight:600;
+  color:#333;
+  margin:20px 0 6px;
+}
+.post-body p{
+  font-size:16.5px;
+  line-height:1.9;
+  margin-bottom:18px;
+  color:var(--muted);
+}
+.post-body p:last-of-type{margin-bottom:0;}
 
-.blog-card-body{padding:24px 26px 26px;}
-.blog-card-tag{display:inline-block;background:var(--orange-l);color:var(--orange-d);font-weight:700;padding:4px 13px;border-radius:50px;font-size:12px;margin-bottom:12px;}
-.blog-card-title{font-family:var(--fh);font-size:20px;font-weight:700;line-height:1.3;margin-bottom:10px;color:var(--truffle);}
-.blog-card-excerpt{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;}
-.blog-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--lighter);}
-.blog-card-meta-left{display:flex;gap:14px;align-items:center;}
-.blog-card-meta span{display:flex;align-items:center;gap:4px;}
-.blog-read-link{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--orange);transition:gap .2s;}
-.blog-card:hover .blog-read-link{gap:9px;}
+/* PULL QUOTE */
+.pull-quote{
+  border-left:4px solid var(--orange);
+  margin:36px 0;
+  padding:18px 24px;
+  background:var(--orange-l);
+  border-radius:0 12px 12px 0;
+}
+.pull-quote p{
+  font-family:var(--fh);
+  font-size:19px;
+  font-style:italic;
+  color:var(--truffle);
+  line-height:1.6;
+  margin-bottom:0;
+}
 
-/* ── FOOTER ── */
+/* SIGN OFF */
+.sign-off{
+  font-family:var(--fk);
+  font-size:28px;
+  color:var(--orange);
+  text-align:right;
+  margin-top:32px;
+  padding-top:32px;
+}
+
+/* FOOTER */
 footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1400px;margin:0 auto 40px;padding-bottom:40px;border-bottom:1px solid rgba(255,248,242,.15);}
 .footer-brand-logo{height:56px;object-fit:contain;margin-bottom:6px;display:block;opacity:.9;}
@@ -104,9 +143,7 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 
 @media(max-width:900px){
   nav{padding:0 20px;}
-  .hero h1{font-size:38px;}
-  .blog-section{padding:0 20px 80px;}
-  .blog-grid{grid-template-columns:1fr;}
+  .post-hero-img img{height:280px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
   .footer-bottom{justify-content:center;text-align:center;}
 }
@@ -114,7 +151,6 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-brand">
     <img src="images/img_00.png" alt="WoofyTalks Logo" class="nav-logo">
@@ -138,95 +174,104 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">Tales from the heart</div>
-    <h1>The WoofyTalks Blog</h1>
-    <p>Stories about dog parenting, product insights, Sherry's adventures, and everything that makes our bond with dogs so special.</p>
-  </div>
-</section>
-
-<!-- SECTION HEADING -->
-<div class="section-label">
-  <h2>Stories Worth Sitting With</h2>
-  <p>Honest reflections on life with dogs written slowly, for those who pay attention</p>
+<div class="breadcrumb">
+  <a href="blog.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Blog
+  </a>
 </div>
 
-<!-- BLOG CARD GRID -->
-<section class="blog-section">
-  <div class="blog-grid">
+<div class="post-wrapper">
 
-    <!-- CARD 1 -->
-    <a href="blog-post.html" class="blog-card">
-      <div class="blog-img-wrap">
-        <img src="images/Blog_1.png" alt="Why I Started WoofyTalks">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Origin Story</span>
-        <h3 class="blog-card-title">Why I Started WoofyTalks</h3>
-        <p class="blog-card-excerpt">When I first became a dog parent, I thought I understood what it meant. But small things kept pulling me to pay closer attention and that changed everything.</p>
-        <div class="blog-card-meta">
-          <div class="blog-card-meta-left">
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              June 2025
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              5 min read
-            </span>
-          </div>
-          <span class="blog-read-link">
-            Read
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-      </div>
-    </a>
+  <div class="post-hero-img">
+    <img src="images/Blog_2.png" alt="The Walk Is More Than Exercise">
+  </div>
 
-    <!-- CARD 2 -->
-    <a href="blog-post-2.html" class="blog-card">
-      <div class="blog-img-wrap">
-        <img src="images/Thumbnail_1.png" alt="The Walk Is More Than Exercise">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Dog Behaviour</span>
-        <h3 class="blog-card-title">The Walk Is More Than Exercise</h3>
-        <p class="blog-card-excerpt">We think the walk is about burning energy. But dogs experience it as something much deeper — a ritual of trust, leadership, and connection that shapes everything else.</p>
-        <div class="blog-card-meta">
-          <div class="blog-card-meta-left">
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              July 2025
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              6 min read
-            </span>
-          </div>
-          <span class="blog-read-link">
-            Read
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-      </div>
-    </a>
+  <div class="post-meta">
+    <span class="post-tag">Dog Behaviour</span>
+    <span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      July 2025
+    </span>
+    <span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      6 min read
+    </span>
+    <span>By Sreya</span>
+  </div>
 
-    <!-- Placeholder card (for future posts) -->
-    <div class="blog-card" style="opacity:.35;pointer-events:none;">
-      <div class="blog-img-wrap" style="background:var(--sand);"></div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Coming Soon</span>
-        <h3 class="blog-card-title">More stories on the way…</h3>
-        <p class="blog-card-excerpt">New reflections, insights and everyday moments with dogs are being written. Stay tuned.</p>
-      </div>
+  <div class="post-body">
+
+    <h2>The Walk Is More Than Exercise</h2>
+
+    <p>For a long time, I thought of the walk as a practical thing. Sherry needs to move, burn some energy, get fresh air. Tick the box, come back home. That was the whole story in my head.</p>
+
+    <p>But I kept noticing something. On days when the walk felt rushed or distracted, Sherry would come home restless. On days when we walked slowly, with intention, she would settle almost immediately. Same distance. Different feeling.</p>
+
+    <p>That difference started to matter to me.</p>
+
+    <h3>A Bird Has to Fly. A Dog Has to Walk.</h3>
+
+    <p>There is a simple idea that I kept coming back to: every animal has something it needs to do in its nature. A bird needs to fly. A fish needs to swim. And a dog — deeply, genuinely — needs to walk.</p>
+
+    <p>Not just as physical output, but as a lived experience. The walk is how dogs process the world. It is how they read their environment, settle their nervous system, and feel connected to whoever is leading them.</p>
+
+    <p>When we treat it as a quick chore, we strip it of all of that. The dog gets movement, but not what the movement was supposed to give them.</p>
+
+    <div class="pull-quote">
+      <p>The walk is not just something you do for your dog. It is something you do together — and how you show up for it changes everything.</p>
     </div>
 
-  </div>
-</section>
+    <h3>What I Changed About How I Walk</h3>
 
-<!-- FOOTER -->
+    <h4>I stopped bringing my phone</h4>
+    <p>This one felt small but it was not. When I was scrolling or checking messages mid-walk, I was physically present but mentally somewhere else entirely. Sherry could feel that. Dogs are remarkably attuned to where your attention actually is.</p>
+
+    <p>Once I stopped carrying my phone on walks — or at least stopped looking at it — the whole texture of the experience changed. I noticed more. She noticed more. We were actually walking together instead of alongside each other.</p>
+
+    <h4>I slowed down</h4>
+    <p>Speed communicates energy. A rushed walk sends a particular kind of signal — hurried, tense, somewhere to be. A slower pace brings a different quality of attention, both from you and from your dog.</p>
+
+    <p>Sherry began stopping to sniff things more on slower walks. I used to redirect her away from that, thinking it was wasting time. But sniffing is how dogs absorb their environment. It is not a detour from the walk. It is the walk, for them.</p>
+
+    <h4>I paid attention to my own energy before we left</h4>
+    <p>If I was stressed or irritable and we went straight out the door, Sherry would pick that up before we even reached the gate. Dogs do not need words to understand how you are feeling. They read your body, your breath, your pace.</p>
+
+    <p>I started taking a moment before walks — nothing elaborate, just a breath and a deliberate shift in gear. It sounds like a small thing, and it is. But it changed how both of us arrived at the walk.</p>
+
+    <h3>The Three Things That Matter Most</h3>
+
+    <p>Over time, I noticed that the most grounding walks shared three qualities. The meeting before the walk — calm, no big hellos, no rushed leashing — set the tone. The walk itself, steady and present, did the work. And the return home, where we both settled before the energy of the house came back in, gave it a proper ending.</p>
+
+    <p>These are not rules. They are rhythms. And rhythms, repeated over 21 days, start to reshape behaviour in ways that feel almost effortless.</p>
+
+    <h3>What This Has to Do with Your Dog's Behaviour at Home</h3>
+
+    <p>I used to separate the walk from everything else — behaviour at home, anxiety, restlessness. They felt like different categories.</p>
+
+    <p>But they are not. The walk is where a lot of it begins. A dog who walks with a calm, present companion is a dog who comes home already oriented. Already settled. Already trusting.</p>
+
+    <p>A dog who walks with someone distracted or hurried brings all that unresolved energy back through the door with them.</p>
+
+    <p>It took me a while to see how directly connected these things were. Now it seems obvious, but only because I started paying attention to the walk itself rather than just completing it.</p>
+
+    <h3>The Walk as a Ritual</h3>
+
+    <p>I think of it now as one of the most important rituals Sherry and I share. It is not the longest part of the day. But it is one of the most honest parts. There is no pretending on a walk. You are either present or you are not. Your dog knows immediately.</p>
+
+    <p>That kind of honesty is good for both of you.</p>
+
+    <p>If you have been walking your dog the way I used to — functional, fast, phone in hand — I am not saying it is wrong. I am just saying there is something more available in that time, if you want it.</p>
+
+    <p>Try it once without your phone. Walk a little slower. Notice what your dog does when you are fully there.</p>
+
+    <p>That noticing is where it starts.</p>
+
+    <div class="sign-off">Until next time, Sreya ✦</div>
+
+  </div>
+</div>
+
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
