@@ -11,7 +11,6 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--fb);background:var(--c);color:var(--t);overflow-x:hidden;}
 .icon svg{width:100%;height:100%;}
-
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(255,248,242,.97);backdrop-filter:blur(20px);border-bottom:1.5px solid var(--br);transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
@@ -19,7 +18,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .nav-name{font-size:18px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:1px;}
 .nav-name .n1{font-family:var(--fh);font-weight:700;color:var(--t);font-size:18px;}
 .nav-name .n2{font-family:var(--fh);font-style:italic;font-weight:400;color:var(--o);font-size:18px;}
-.nav-name span{color:var(--o);}
 .nav-links{display:flex;gap:2px;list-style:none;align-items:center;}
 .nav-links>li{position:relative;}
 .nav-links>li>a{font-size:14px;font-weight:700;color:var(--m);text-decoration:none;padding:8px 14px;border-radius:50px;display:flex;align-items:center;gap:4px;transition:all .2s;}
@@ -32,7 +30,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--t);font-size:14px;font-weight:700;transition:all .2s;}
 .dropdown a:hover{background:var(--ol);color:var(--o);}
 .dropdown-hr{height:1px;background:var(--br);margin:4px 8px;}
-.soon-tag{font-size:10px;font-weight:800;background:var(--gll);color:var(--gl2);padding:2px 8px;border-radius:20px;margin-left:auto;}
 .nav-cta{background:var(--o);color:#fff;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:800;text-decoration:none;transition:all .2s;letter-spacing:.2px;}
 .nav-cta:hover{background:var(--t);}
 .nav-ham{display:none;background:none;border:none;cursor:pointer;padding:4px;}
@@ -40,7 +37,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .mob a{display:block;padding:12px 0;font-size:15px;font-weight:700;color:var(--t);text-decoration:none;border-bottom:1px solid var(--br);}
 .mob a.sub{padding-left:18px;font-size:14px;color:var(--m);}
 .mob a.cta{margin-top:14px;background:var(--o);color:#fff;text-align:center;padding:13px;border-radius:12px;border:none;}
-
 .hero{height:100vh;display:flex;align-items:stretch;padding-top:72px;background:var(--c);}
 .hero-text{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px;padding-right:40px;}
 .hero h1{font-family:var(--fh);font-size:72px;font-weight:900;line-height:1.15;color:var(--t);margin-bottom:24px;}
@@ -52,121 +48,40 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .btn-primary:hover{background:var(--od);transform:translateY(-2px);}
 .btn-secondary{background:transparent;color:var(--o);border:2.5px solid var(--o);}
 .btn-secondary:hover{background:var(--ol);}
-.hero-img{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.hero-img img{width:100%;height:100%;object-fit:cover;}
-
-@media(max-width:968px){
-.hero{flex-direction:column;height:auto;}
-.hero-text{padding:40px;padding-right:40px;}
-.hero h1{font-size:48px;}
-.hero-img{height:400px;}
-}
-
+.hero-img{flex:1;display:flex;align-items:center;justify-content:center;overflow:visible;padding:40px;position:relative;}
+.hero-img-curved{position:relative;width:100%;height:100%;border-radius:0 0 50% 50%;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15);}
+.hero-img-curved img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-label{position:absolute;background:#fff;padding:14px 18px;border-radius:50px;box-shadow:0 4px 16px rgba(0,0,0,.15);font-size:12px;color:var(--m);}
+.hero-label-top{top:60px;right:40px;}
+.hero-label-bottom{bottom:40px;left:40px;display:flex;align-items:center;gap:8px;}
+.hero-label-title{font-family:var(--fh);font-weight:700;color:var(--t);}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px;padding-top:40px;border-top:1px solid var(--br);}
+.hero-stat-num{font-family:var(--fh);font-size:32px;font-weight:900;color:var(--t);margin-bottom:8px;}
+.hero-stat-label{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--m);}
+@media(max-width:968px){.hero{flex-direction:column;height:auto;}.hero-text{padding:40px;}.hero h1{font-size:48px;}.hero-img{height:400px;}}
 section{padding:80px 60px;}
 .sec-title{text-align:center;margin-bottom:60px;}
 .sec-title h2{font-family:var(--fh);font-size:52px;font-weight:900;color:var(--t);margin-bottom:16px;}
 .sec-title p{font-size:18px;color:var(--m);max-width:600px;margin:0 auto;line-height:1.7;}
-
-.about{background:var(--c2);display:flex;gap:40px;align-items:center;}
-.about-img{flex:0 0 45%;height:400px;overflow:hidden;border-radius:var(--rl);}
-.about-img img{width:100%;height:100%;object-fit:cover;}
+.about{background:var(--c2);display:flex;gap:40px;align-items:flex-start;}
+.about-img{flex:0 0 40%;overflow:hidden;border-radius:var(--rl);}
+.about-img img{width:100%;height:auto;display:block;}
 .about-text{flex:1;}
 .about-text h3{font-family:var(--fh);font-size:28px;font-weight:700;color:var(--t);margin-bottom:20px;}
 .about-text p{font-size:16px;line-height:1.8;color:var(--m);margin-bottom:20px;}
 .about-text ul{list-style:none;margin:30px 0;}
 .about-text li{font-size:16px;line-height:1.8;color:var(--m);margin-bottom:12px;padding-left:24px;position:relative;}
 .about-text li:before{content:"♥";position:absolute;left:0;color:var(--b);}
-
-@media(max-width:968px){
-.about{flex-direction:column;}
-.about-img{flex:0 0 auto;width:100%;}
-}
-
-.shos{background:linear-gradient(135deg,var(--gl),var(--c));}
-.shos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px;}
-.sho-card{background:#fff;padding:32px;border-radius:var(--rl);border:1.5px solid var(--br);transition:all .3s;text-align:center;}
-.sho-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(42,26,14,.1);}
-.sho-card-img{width:140px;height:140px;margin:0 auto 24px;border-radius:50%;overflow:hidden;}
-.sho-card-img img{width:100%;height:100%;object-fit:cover;}
-.sho-card h4{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--t);margin-bottom:12px;}
-.sho-card p{font-size:15px;line-height:1.7;color:var(--m);}
-
-@media(max-width:968px){
-.shos-grid{grid-template-columns:1fr;gap:20px;}
-}
-
-.social{background:var(--skl);}
-.social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:800px;margin:0 auto;}
-.soc-item{background:#fff;padding:28px;border-radius:var(--rl);border:1.5px solid var(--br);text-align:center;transition:all .3s;}
-.soc-item:hover{box-shadow:0 16px 32px rgba(58,159,204,.15);}
-.soc-item h4{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t);margin-bottom:12px;}
-.soc-item a{color:var(--o);font-weight:700;text-decoration:none;transition:all .2s;}
-.soc-item a:hover{color:var(--od);}
-
-@media(max-width:600px){
-.social-grid{grid-template-columns:1fr;}
-}
-
-.cta-sec{background:linear-gradient(135deg,var(--ol),var(--bl));padding:60px;border-radius:var(--rl);text-align:center;}
-.cta-sec h3{font-family:var(--fh);font-size:38px;font-weight:700;color:var(--t);margin-bottom:16px;}
-.cta-sec p{font-size:16px;color:var(--m);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
-
-footer{background:var(--t);color:#fff;padding:60px;margin-top:60px;}
-.footer-content{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;margin-bottom:40px;}
-.footer-col h4{font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:16px;}
-.footer-col ul{list-style:none;}
-.footer-col ul li{margin-bottom:12px;}
-.footer-col ul li a{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;transition:all .2s;}
-.footer-col ul li a:hover{color:#fff;}
-.footer-brand-name{font-family:var(--fh);font-size:22px;font-weight:700;margin-bottom:12px;display:flex;align-items:baseline;gap:4px;}
-.footer-brand-name .n1{color:#fff;}
-.footer-brand-name .n2{color:var(--o);font-style:italic;font-weight:400;}
-.footer-brand-desc{font-size:14px;line-height:1.6;margin-bottom:16px;color:rgba(255,255,255,.8);}
-.footer-brand-hand{font-family:var(--fk);font-size:18px;color:var(--o);display:block;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.6);}
-.footer-socials{display:flex;gap:16px;}
-.fsoc{width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--o);transition:all .2s;text-decoration:none;}
-.fsoc:hover{color:#fff;}
-
-@media(max-width:968px){
-.footer-content{grid-template-columns:repeat(2,1fr);gap:24px;}
-.footer-bottom{flex-direction:column;gap:16px;text-align:center;}
-}
-
-.newsletter{background:var(--bl);padding:60px;border-radius:var(--rl);text-align:center;margin-bottom:60px;}
-.newsletter h3{font-family:var(--fh);font-size:32px;font-weight:700;color:var(--t);margin-bottom:12px;}
-.newsletter p{font-size:15px;color:var(--m);margin-bottom:24px;}
-.newsletter-form{display:flex;gap:12px;max-width:400px;margin:0 auto;}
-#emailIn{flex:1;padding:12px 16px;border:2px solid var(--br);border-radius:50px;font-family:var(--fb);font-size:14px;background:#fff;transition:all .2s;}
-#emailIn:focus{outline:none;border-color:var(--o);}
-.email-btn{padding:12px 28px;background:var(--o);color:#fff;border:none;border-radius:50px;font-weight:800;font-family:var(--fb);cursor:pointer;transition:all .2s;}
-.email-btn:hover:not(:disabled){background:var(--od);}
-.email-btn:disabled{opacity:.7;cursor:not-allowed;}
-
-@media(max-width:600px){
-section{padding:60px 24px;}
-.hero-text{padding:40px 24px;}
-.hero h1{font-size:40px;}
-.sec-title h2{font-size:36px;}
-footer{padding:40px 24px;}
-.footer-content{grid-template-columns:1fr;}
-}
-
-.rev{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s;}
-.rev.visible{opacity:1;transform:translateY(0);}
-
-.jcard{background:#fff;border:1.5px solid var(--br);border-radius:var(--rl);overflow:hidden;transition:all .3s;text-decoration:none;display:block;color:inherit;}
+@media(max-width:968px){.about{flex-direction:column;}.about-img{flex:0 0 auto;width:100%;}}
+.jcard{background:#fff;border:1.5px solid var(--br);border-radius:var(--rl);overflow:hidden;transition:all .3s;color:inherit;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;padding:0;text-decoration:none;}
 .jcard:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(42,26,14,.1);}
-.jcard-bar{height:4px;width:100%;}
-.jcard-bar-o{background:var(--o);}
-.jcard-bar-g{background:var(--gl2);}
-.jcard-bar-gr{background:var(--g);}
-.jcard-bar-s{background:var(--sk);}
-.jcard-body{padding:28px;}
+.jcard-img{height:100%;min-height:400px;overflow:hidden;}
+.jcard-img img{width:100%;height:100%;object-fit:cover;}
+.jcard-body{padding:40px;display:flex;flex-direction:column;justify-content:center;}
 .jcard-tag{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--m);margin-bottom:8px;opacity:.7;}
-.jcard-title{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t);margin-bottom:12px;}
-.jcard-price{font-size:16px;font-weight:800;color:var(--o);}
-
+.jcard-title{font-family:var(--fh);font-size:28px;font-weight:700;color:var(--t);margin-bottom:12px;}
+.jcard-desc{font-size:15px;line-height:1.7;color:var(--m);margin-bottom:20px;}
+.jcard-price{font-size:20px;font-weight:800;color:var(--o);margin:20px 0;}
 .tcard{background:#fff;padding:28px;border-radius:var(--rl);border:1.5px solid var(--br);}
 .tcard-stars{display:flex;gap:3px;margin-bottom:14px;}
 .tcard-stars svg{width:16px;height:16px;}
@@ -175,118 +90,96 @@ footer{padding:40px 24px;}
 .tcard-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex-shrink:0;}
 .tcard-name{font-size:14px;font-weight:700;color:var(--t);}
 .tcard-loc{font-size:12px;margin-top:2px;color:var(--m);}
-.tc-o{background:var(--ol);border-color:rgba(255,138,76,.15);}
-.tc-o .tcard-av{background:var(--o);}
-.tc-g{background:var(--gl);border-color:rgba(90,175,120,.15);}
-.tc-g .tcard-av{background:var(--g);}
-.tc-b{background:var(--bl);border-color:rgba(232,85,114,.15);}
-.tc-b .tcard-av{background:var(--b);}
-.np-sec{background:var(--t);padding:80px 60px;color:#fff;position:relative;overflow:hidden;}
-.np-header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px;flex-wrap:wrap;}
-.np-header h2{font-family:var(--fh);font-size:52px;font-weight:900;color:#fff;margin-bottom:12px;}
-.np-header h2 em{font-style:italic;}
-.np-subtitle{font-size:15px;line-height:1.8;color:rgba(255,255,255,.8);max-width:320px;}
-.np-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.np-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:var(--rl);overflow:hidden;transition:all .3s;text-decoration:none;display:block;color:#fff;}
+.np-sec{background:var(--t);color:#fff;padding:80px 60px;}
+.np-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:var(--rl);overflow:hidden;transition:all .3s;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;padding:0;text-decoration:none;}
 .np-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,138,76,.3);transform:translateY(-4px);}
-.np-img-wrap{background:rgba(255,255,255,.03);padding:24px;display:flex;align-items:center;justify-content:center;height:200px;}
+.np-img-wrap{height:100%;min-height:400px;background:rgba(255,255,255,.03);padding:40px;display:flex;align-items:center;justify-content:center;}
 .np-img{width:100%;height:100%;object-fit:contain;}
-.np-body{padding:16px 20px;}
+.np-body{padding:40px;display:flex;flex-direction:column;justify-content:center;}
 .np-style{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px;}
-.np-name{font-family:var(--fh);font-size:17px;font-weight:700;margin-bottom:4px;}
-.np-price{font-size:15px;font-weight:800;color:var(--o);}
-.np-cta{display:inline-block;margin-top:16px;background:var(--o);color:#fff;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:800;text-decoration:none;transition:all .2s;}
+.np-name{font-family:var(--fh);font-size:28px;font-weight:700;margin-bottom:16px;}
+.np-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,.8);margin-bottom:20px;}
+.np-price{font-size:20px;font-weight:800;color:var(--o);margin:20px 0;}
+.np-cta{display:inline-block;background:var(--o);color:#fff;padding:12px 32px;border-radius:50px;font-size:14px;font-weight:800;text-decoration:none;transition:all .2s;margin-top:20px;}
 .np-cta:hover{background:var(--od);}
-
-@media(max-width:968px){
-.np-grid{grid-template-columns:repeat(2,1fr);}
-.np-header{flex-direction:column;align-items:flex-start;}
-}
-@media(max-width:600px){
-.np-grid{grid-template-columns:1fr;}
-.np-header h2{font-size:36px;}
-}
+.newsletter{background:var(--g);padding:80px 60px;border-radius:var(--rl);text-align:center;}
+.newsletter h3{font-family:var(--fh);font-size:48px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.1;}
+.newsletter-sub{font-family:var(--fh);font-style:italic;font-size:32px;color:rgba(255,255,255,.8);margin-bottom:24px;}
+.newsletter p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.newsletter-form{display:flex;gap:12px;max-width:500px;margin:0 auto;}
+#emailIn{flex:1;padding:14px 20px;border:none;border-radius:50px;font-family:var(--fb);font-size:15px;background:#fff;}
+#emailIn:focus{outline:none;}
+.email-btn{padding:14px 32px;background:var(--o);color:#fff;border:none;border-radius:50px;font-weight:800;font-family:var(--fb);cursor:pointer;transition:all .2s;}
+.email-btn:hover:not(:disabled){background:var(--od);}
+.email-btn:disabled{opacity:.7;cursor:not-allowed;}
+.newsletter-note{font-size:12px;color:rgba(255,255,255,.6);margin-top:16px;}
+.cta-sec{background:linear-gradient(135deg,var(--ol),var(--bl));padding:60px;border-radius:var(--rl);text-align:center;}
+.cta-sec h3{font-family:var(--fh);font-size:38px;font-weight:700;color:var(--t);margin-bottom:16px;}
+.cta-sec p{font-size:16px;color:var(--m);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+footer{background:var(--t);color:#fff;padding:0;}
+.footer-cta{background:var(--o);padding:60px;text-align:center;}
+.footer-cta h3{font-family:var(--fh);font-size:36px;font-weight:900;color:#fff;margin-bottom:12px;}
+.footer-cta p{font-size:15px;color:rgba(255,255,255,.9);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto;}
+.footer-content{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding:60px;}
+.footer-logo{grid-column:span 1;}
+.footer-logo-img{width:80px;height:80px;margin-bottom:16px;}
+.footer-logo-img img{width:100%;height:auto;}
+.footer-brand-name{font-family:var(--fh);font-size:22px;font-weight:700;margin-bottom:12px;display:flex;align-items:baseline;gap:4px;}
+.footer-brand-name .n1{color:#fff;}
+.footer-brand-name .n2{color:var(--o);font-style:italic;font-weight:400;}
+.footer-brand-desc{font-size:14px;line-height:1.6;margin-bottom:16px;color:rgba(255,255,255,.8);}
+.footer-brand-hand{font-family:var(--fk);font-size:18px;color:var(--o);display:block;}
+.footer-col h4{font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col ul li a{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;transition:all .2s;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:24px 60px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.6);}
+.footer-socials{display:flex;gap:16px;}
+.fsoc{width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--o);transition:all .2s;text-decoration:none;}
+.fsoc:hover{color:#fff;}
+@media(max-width:600px){section{padding:60px 24px;}.hero-text{padding:40px 24px;}.hero h1{font-size:40px;}.sec-title h2{font-size:36px;}footer{padding:40px 24px;}.footer-content{grid-template-columns:1fr;}}
+.rev{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s;}
+.rev.visible{opacity:1;transform:translateY(0);}
 </style>
 </head>
 <body>
 <nav id="nav">
-<a href="#home" class="nav-brand">
-<img src="images/img_00.png" alt="WoofyTalks" class="nav-logo">
-<div class="nav-name"><span class="n1">Woofy</span><span class="n2">Talks</span></div>
-</a>
+<a href="#home" class="nav-brand"><img src="images/img_00.png" alt="WoofyTalks" class="nav-logo"><div class="nav-name"><span class="n1">Woofy</span><span class="n2">Talks</span></div></a>
 <ul class="nav-links">
 <li><a href="#home">Home</a></li>
 <li><a href="story.html">Our Story</a></li>
-<li>
-<a href="#products">Products
-<svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</a>
-<div class="dropdown">
-<a href="journals.html">Journals</a>
-<div class="dropdown-hr"></div>
-<a href="nameplates.html">Name Plates</a>
-</div>
-</li>
+<li><a href="#products">Products<svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<div class="dropdown"><a href="journals.html">Journals</a><div class="dropdown-hr"></div><a href="nameplates.html">Name Plates</a></div></li>
 <li><a href="blog.html">Blog</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
 <a href="#newsletter" class="nav-cta">Join Us</a>
 <button class="nav-ham" onclick="document.querySelector('.mob').style.display=document.querySelector('.mob').style.display==='none'?'flex':'none'">☰</button>
 </nav>
-<div class="mob">
-<a href="#home">Home</a>
-<a href="story.html">Our Story</a>
-<a href="#products">Products</a>
-<a href="journals.html" class="sub">Journals</a>
-<a href="nameplates.html" class="sub">Name Plates</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
-<a href="#newsletter" class="cta">Join Us</a>
-</div>
+<div class="mob"><a href="#home">Home</a><a href="story.html">Our Story</a><a href="#products">Products</a><a href="journals.html" class="sub">Journals</a><a href="nameplates.html" class="sub">Name Plates</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="#newsletter" class="cta">Join Us</a></div>
 
 <section class="hero" id="home">
 <div class="hero-text">
 <span style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--o);margin-bottom:16px;display:block;">JOURNALS & NAME PLATES · KOLKATA</span>
 <h1>Every bark. Every moment. <span class="hl">Matters.</span></h1>
 <p>You cherish the way they greet you. You feel their joy, their pain, their loyalty like it's your own. WoofyTalks exists for you. For the deep connection you share.</p>
-<div class="cta-g">
-<a href="#journals" class="btn btn-primary">Explore Products</a>
-<a href="story.html" class="btn btn-secondary">Our Story</a>
-</div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px;padding-top:40px;border-top:1px solid var(--br);">
-<div>
-<div style="font-family:var(--fh);font-size:32px;font-weight:900;color:var(--t);margin-bottom:8px;">4</div>
-<div style="font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--m);">Journals Ready</div>
-</div>
-<div>
-<div style="font-family:var(--fh);font-size:32px;font-weight:900;color:var(--t);margin-bottom:8px;">9+</div>
-<div style="font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--m);">Name Plate Designs</div>
-</div>
-<div>
-<div style="font-family:var(--fh);font-size:32px;font-weight:900;color:var(--t);margin-bottom:8px;">4 yrs</div>
-<div style="font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--m);">Sherry's Love</div>
-</div>
+<div class="cta-g"><a href="#journals" class="btn btn-primary">Explore Products</a><a href="story.html" class="btn btn-secondary">Our Story</a></div>
+<div class="hero-stats">
+<div><div class="hero-stat-num">4</div><div class="hero-stat-label">Journals Ready</div></div>
+<div><div class="hero-stat-num">9+</div><div class="hero-stat-label">Name Plate Designs</div></div>
+<div><div class="hero-stat-num">4 yrs</div><div class="hero-stat-label">Sherry's Love</div></div>
 </div>
 </div>
 <div class="hero-img">
-<div style="position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;">
-<img src="images/Sherry_1.png" alt="Hero" style="height:100%;width:auto;object-fit:contain;">
-<div style="position:absolute;top:20px;right:20px;background:#fff;padding:12px 16px;border-radius:50px;box-shadow:0 4px 16px rgba(0,0,0,.1);">
-<div style="font-family:var(--fh);font-size:14px;font-weight:700;color:var(--t);">Sherry</div>
-<div style="font-size:12px;color:var(--m);">the real boss</div>
-</div>
-<div style="position:absolute;bottom:20px;left:20px;background:#fff;padding:12px 16px;border-radius:50px;box-shadow:0 4px 16px rgba(0,0,0,.1);display:flex;align-items:center;gap:8px;">
-<svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;color:var(--g);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-<div style="font-size:12px;color:var(--m);">Made in Kolkata<br><span style="color:var(--g);font-weight:700;">with love</span></div>
-</div>
-</div>
+<div class="hero-img-curved"><img src="images/Sherry_1.png" alt="Hero"></div>
+<div class="hero-label hero-label-top"><div class="hero-label-title">Sherry</div><div>the real boss</div></div>
+<div class="hero-label hero-label-bottom"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;color:var(--g);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div><span style="color:var(--g);font-weight:700;">Made in Kolkata</span><br><span>with love</span></div></div>
 </div>
 </section>
 
 <section class="about" id="about">
-<div class="about-img">
-<img src="images/Sherry_2.png" alt="About" style="width:100%;height:100%;object-fit:cover;object-position:center;">
-</div>
+<div class="about-img"><img src="images/Sherry_2.png" alt="About"></div>
 <div class="about-text">
 <h3>Crafted for Hearts Like Yours</h3>
 <p>We know the feeling. The quiet moments with your companion. The way they understand you without words. These are the memories worth preserving, celebrating, and honoring forever.</p>
@@ -301,186 +194,115 @@ footer{padding:40px 24px;}
 </div>
 </section>
 
-<section class="shos" id="journals">
-<div class="sec-title">
-<h2>Start Here. Feel Everything.</h2>
-<p>Digital journals designed to help you hold space for your dog. Every entry is a love letter.</p>
-</div>
+<section style="padding:80px 60px;"><div class="sec-title"><h2>Start Here. Feel Everything.</h2><p>Digital journals designed to help you hold space for your dog. Every entry is a love letter.</p></div>
 <div style="max-width:900px;margin:40px auto;">
-<div class="jcard rev" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:#fff;border:1.5px solid var(--br);border-radius:var(--rl);overflow:hidden;padding:0;color:inherit;">
-<div style="height:100%;overflow:hidden;min-height:400px;">
-<img src="images/The_Quiet_Dog_Journal_.png" alt="The Quiet Dog Journal" style="width:100%;height:100%;object-fit:cover;">
-</div>
-<div class="jcard-body" style="padding:40px;display:flex;flex-direction:column;justify-content:center;">
-<div class="jcard-tag">Reflective</div>
-<h4 style="font-size:28px;margin-bottom:16px;">The Quiet Dog Journal</h4>
-<p style="color:var(--m);margin:16px 0;line-height:1.7;font-size:16px;">A reflective space for pet parents to observe, listen, and bond with their companion. Every prompt is designed to deepen your connection and celebrate the quiet moments that matter most.</p>
-<p style="color:var(--m);margin:16px 0;line-height:1.7;font-size:15px;font-style:italic;">Listening does not require expertise. It requires attention.</p>
-<div class="jcard-price" style="font-size:20px;margin:20px 0;">Rs.499</div>
-<a href="journals.html" class="btn btn-primary" style="width:fit-content;">Explore More</a>
-</div>
-</div>
+<a href="journals.html" class="jcard rev"><div class="jcard-img"><img src="images/The_Quiet_Dog_Journal_.png" alt="The Quiet Dog Journal"></div><div class="jcard-body"><div class="jcard-tag">Reflective</div><h4 class="jcard-title">The Quiet Dog Journal</h4><p class="jcard-desc">A reflective space for pet parents to observe, listen, and bond with their companion. Every prompt is designed to deepen your connection and celebrate the quiet moments that matter most.</p><p style="color:var(--m);margin:16px 0;line-height:1.7;font-size:15px;font-style:italic;">Listening does not require expertise. It requires attention.</p><div class="jcard-price">Rs.499</div><span class="btn btn-primary" style="width:fit-content;">Explore More</span></div></a>
 </div>
 </section>
 
-</section>
-
-<section style="background:var(--c2);padding:80px 60px;">
-<div class="sec-title">
-<h2>What Dog Parents Are Saying</h2>
-<p>Real stories from our community of devoted hearts</p>
-</div>
+<section style="background:var(--c2);padding:80px 60px;"><div class="sec-title"><h2>What Dog Parents Are Saying</h2><p>Real stories from our community of devoted hearts</p></div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto;">
-<div class="tcard tc-o rev">
-<div style="font-size:24px;color:var(--o);margin-bottom:12px;">"</div>
-<div class="tcard-stars">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<div class="tcard rev" style="background:#fff;"><div style="font-size:24px;color:var(--o);margin-bottom:12px;">"</div><div class="tcard-stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="tcard-text">The Quiet Dog Journal made me realise how much I was rushing through my time with my dog. Now I actually sit with him and write. It has genuinely changed our relationship.</p><div class="tcard-author"><div class="tcard-av" style="background:var(--o);">P</div><div><div class="tcard-name">Priyanka M.</div><div class="tcard-loc">Mumbai · Labrador parent</div></div></div></div>
+<div class="tcard rev" style="background:#fff;"><div style="font-size:24px;color:var(--g);margin-bottom:12px;">"</div><div class="tcard-stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="tcard-text">Sreya's story hit me so hard. The Emotional Check-In journal helped me through some of the hardest moments with my senior dog. I am so grateful it exists.</p><div class="tcard-author"><div class="tcard-av" style="background:var(--g);">R</div><div><div class="tcard-name">Rohini S.</div><div class="tcard-loc">Bengaluru · Golden parent</div></div></div></div>
+<div class="tcard rev" style="background:#fff;"><div style="font-size:24px;color:var(--b);margin-bottom:12px;">"</div><div class="tcard-stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="tcard-text">These journals have become part of my daily ritual with my dog. It's made our bond even stronger. I recommend this to every dog parent I meet.</p><div class="tcard-author"><div class="tcard-av" style="background:var(--b);">A</div><div><div class="tcard-name">Anjali K.</div><div class="tcard-loc">Pune · Cocker parent</div></div></div></div>
+</div></section>
+
+<section style="background:var(--t);color:#fff;padding:80px 60px;">
+<div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+<div style="text-align:left;">
+<div style="width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid var(--o);box-shadow:0 10px 40px rgba(0,0,0,.3);"><img src="images/dp.png" alt="Sherry" style="width:100%;height:100%;object-fit:cover;"></div>
 </div>
-<p class="tcard-text">The Quiet Dog Journal made me realise how much I was rushing through my time with my dog. Now I actually sit with him and write. It has genuinely changed our relationship.</p>
-<div class="tcard-author">
-<div class="tcard-av" style="background:var(--o);">P</div>
 <div>
-<div class="tcard-name">Priyanka M.</div>
-<div class="tcard-loc">Mumbai · Labrador parent</div>
-</div>
-</div>
-</div>
-<div class="tcard tc-g rev">
-<div style="font-size:24px;color:var(--g);margin-bottom:12px;">"</div>
-<div class="tcard-stars">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-</div>
-<p class="tcard-text">Sreya's story hit me so hard. The Emotional Check-In journal helped me through some of the hardest moments with my senior dog. I am so grateful it exists.</p>
-<div class="tcard-author">
-<div class="tcard-av" style="background:var(--g);">R</div>
-<div>
-<div class="tcard-name">Rohini S.</div>
-<div class="tcard-loc">Bengaluru · Golden parent</div>
-</div>
-</div>
-</div>
-<div class="tcard tc-b rev">
-<div style="font-size:24px;color:var(--b);margin-bottom:12px;">"</div>
-<div class="tcard-stars">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-</div>
-<p class="tcard-text">These journals have become part of my daily ritual with my dog. It's made our bond even stronger. I recommend this to every dog parent I meet.</p>
-<div class="tcard-author">
-<div class="tcard-av" style="background:var(--b);">A</div>
-<div>
-<div class="tcard-name">Anjali K.</div>
-<div class="tcard-loc">Pune · Cocker parent</div>
-</div>
-</div>
+<span style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--o);margin-bottom:16px;display:block;">FOLLOW THE REAL BOSS</span>
+<h2 style="font-family:var(--fh);font-size:42px;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.2;">Sherry has his own<br><span style="font-style:italic;color:var(--o);">Instagram now.</span></h2>
+<p style="font-size:16px;line-height:1.8;color:rgba(255,255,255,.8);margin-bottom:32px;">Daily updates from the indie dog who inspired all of this. Sunset walks, zoomies, wardrobe moments, and a tongue that never quite stays in.</p>
+<a href="https://instagram.com/sher_o_sherry" target="_blank" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;"><span>Follow @sher_o_sherry</span><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="5" r="1"/><path d="M21 13v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h7"/></svg></a>
 </div>
 </div>
 </section>
 
-<section class="np-sec" id="nameplates">
-<div class="np-header rev">
-<div>
-<span style="display:block;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--o);margin-bottom:14px;">Handcrafted Name Plates</span>
-<h2>Your Home Has a Dog.<br><em>Let it show.</em></h2>
-<p class="np-subtitle">Each nameplate is handcrafted with care. Made to order, shipped pan-India. Because every home with a dog in it is a different kind of home entirely.</p>
+<section class="np-sec">
+<div style="max-width:1000px;margin:0 auto;">
+<div style="margin-bottom:60px;">
+<h2 style="font-family:var(--fh);font-size:52px;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.2;">Your Home Has a Dog.<br><em style="font-style:italic;">Let it show.</em></h2>
+<p style="font-size:16px;color:rgba(255,255,255,.8);line-height:1.8;max-width:500px;">Each nameplate is handcrafted with care. Made to order, shipped pan-India. Because every home with a dog in it is a different kind of home entirely.</p>
 </div>
-</div>
-<div style="max-width:900px;margin:40px auto;">
-<a href="nameplates.html" class="np-card rev" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:var(--rl);overflow:hidden;padding:0;text-decoration:none;color:#fff;">
-<div class="np-img-wrap" style="height:100%;min-height:400px;padding:0;background:transparent;">
-<img src="images/Listing.png" alt="Blue Bloom Name Plate" class="np-img" style="width:100%;height:100%;object-fit:contain;padding:20px;">
-</div>
-<div class="np-body" style="padding:40px;display:flex;flex-direction:column;justify-content:center;">
+<a href="nameplates.html" class="np-card rev">
+<div class="np-img-wrap"><img src="images/Listing.png" alt="Custom Name Plate" class="np-img"></div>
+<div class="np-body">
 <div class="np-style">Handcrafted</div>
-<div class="np-name" style="font-size:28px;margin-bottom:16px;">Custom Name Plate</div>
-<p style="color:rgba(255,255,255,.8);margin:16px 0;line-height:1.7;font-size:16px;">A beautiful handcrafted nameplate that celebrates your dog's unique spirit. Made with love, designed to last. Each piece is custom-made to honor your companion.</p>
-<div class="np-price" style="font-size:20px;margin:20px 0;">From Rs.1,399</div>
-<a href="nameplates.html" class="np-cta">Explore More</a>
+<div class="np-name">Custom Name Plate</div>
+<p class="np-desc">A beautiful handcrafted nameplate that celebrates your dog's unique spirit. Made with love, designed to last. Each piece is custom-made to honor your companion.</p>
+<div class="np-price">From Rs.1,399</div>
+<span class="np-cta">Explore More</span>
 </div>
 </a>
 </div>
 </section>
 
 <section class="newsletter" id="newsletter">
-<div style="background:var(--g);padding:80px 60px;border-radius:var(--rl);text-align:center;">
 <div style="width:56px;height:56px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
 <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="width:28px;height:28px;"><path d="M9 3h6a2 2 0 012 2v12a2 2 0 01-2 2H9a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M11 7h2M11 11h2"/></svg>
 </div>
 <span style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:12px;display:block;">FREE FOR YOU</span>
-<h3 style="font-family:var(--fh);font-size:48px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.1;">Get the Calm Home<br>Checklist</h3>
-<p style="font-family:var(--fh);font-style:italic;font-size:32px;color:rgba(255,255,255,.8);margin-bottom:24px;">completely free.</p>
-<p style="font-size:15px;color:rgba(255,255,255,.85);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">The checklist I genuinely wish I had on Day 1 with Sherry. Join the WoofyTalks community and get it instantly in your inbox.</p>
-<div class="newsletter-form" style="max-width:500px;margin:0 auto;">
-<input type="email" id="emailIn" placeholder="your@email.com" style="flex:1;padding:14px 20px;border:none;border-radius:50px;font-family:var(--fb);font-size:15px;background:#fff;transition:all .2s;">
-<button class="email-btn" onclick="handleEmail(this)" style="padding:14px 32px;background:var(--o);color:#fff;border:none;border-radius:50px;font-weight:800;font-family:var(--fb);cursor:pointer;transition:all .2s;">Send it to me</button>
+<h3>Get the Calm Home<br>Checklist</h3>
+<p class="newsletter-sub">completely free.</p>
+<p>The checklist I genuinely wish I had on Day 1 with Sherry. Join the WoofyTalks community and get it instantly in your inbox.</p>
+<div class="newsletter-form">
+<input type="email" id="emailIn" placeholder="your@email.com">
+<button class="email-btn" onclick="handleEmail(this)">Send it to me</button>
 </div>
-<p style="font-size:12px;color:rgba(255,255,255,.6);margin-top:16px;">Occasional journal updates only. Unsubscribe anytime.</p>
-</div>
+<p class="newsletter-note">Occasional journal updates only. Unsubscribe anytime.</p>
 </section>
 
-<section style="background:var(--t);color:#fff;padding:80px 60px;">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto;">
-<div style="text-align:left;">
-<div style="width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid var(--o);box-shadow:0 10px 40px rgba(0,0,0,.3);">
-<img src="images/dp.png" alt="Sherry" style="width:100%;height:100%;object-fit:cover;">
-</div>
-</div>
-<div>
-<span style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--o);margin-bottom:16px;display:block;">FOLLOW THE REAL BOSS</span>
-<h2 style="font-family:var(--fh);font-size:42px;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.2;">Sherry has his own<br><span style="font-style:italic;color:var(--o);">Instagram now.</span></h2>
-<p style="font-size:16px;line-height:1.8;color:rgba(255,255,255,.8);margin-bottom:32px;">Daily updates from the indie dog who inspired all of this. Sunset walks, zoomies, wardrobe moments, and a tongue that never quite stays in.</p>
-<a href="https://instagram.com/sher_o_sherry" target="_blank" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;">
-<span>Follow @sher_o_sherry</span>
-<svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="5" r="1"/><path d="M21 13v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h7"/></svg>
-</a>
-</div>
-</div>
-</section>
-
-<section class="cta-sec" id="connect">
+<section class="cta-sec">
 <h3>Ready to Honor Your Bond?</h3>
 <p>Explore our collection and find the perfect way to celebrate your companion. Because their love deserves to be remembered, cherished, and celebrated forever.</p>
 <a href="journals.html" class="btn btn-primary" style="margin-top:20px;">Shop Now</a>
 </section>
 
 <footer>
-<div style="background:var(--t);color:#fff;padding:60px;">
-<div>
+<div class="footer-cta">
+<h3>Ready to share your practice?</h3>
+<p>Browse the journals and find the one that feels like it was made for you and your dog. Because it probably was.</p>
+<a href="journals.html" class="btn btn-primary" style="background:#fff;color:var(--o);margin-top:12px;">Browse journals</a>
+</div>
+<div class="footer-content">
+<div class="footer-logo">
+<div class="footer-logo-img"><img src="images/img_23.png" alt="WoofyTalks"></div>
 <div class="footer-brand-name"><span class="n1">Woofy</span><span class="n2">Talks</span></div>
-<p class="footer-brand-desc">For the dog parent who feels everything. Born from Sherry's love. Made with love in Kolkata.</p>
+<p class="footer-brand-desc">For the dog parent who feels everything. Inspired by Sherry, who chose me and changed my life. Made with love in Kolkata.</p>
 <span class="footer-brand-hand">love knows no breed</span>
 </div>
-<div class="footer-col"><h4>Pages</h4><ul>
+<div class="footer-col">
+<h4>Pages</h4>
+<ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="story.html">Our Story</a></li>
 <li><a href="journals.html">Journals</a></li>
 <li><a href="nameplates.html">Name Plates</a></li>
 <li><a href="contact.html">Contact</a></li>
-</ul></div>
-<div class="footer-col"><h4>Connect</h4><ul>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Connect</h4>
+<ul>
 <li><a href="https://instagram.com/woofy_talks" target="_blank">@woofy_talks</a></li>
 <li><a href="https://instagram.com/sher_o_sherry" target="_blank">@sher_o_sherry</a></li>
 <li><a href="https://www.facebook.com/share/18PBwGQE1A/" target="_blank">Facebook</a></li>
 <li><a href="https://www.linkedin.com/company/woofytalks/" target="_blank">LinkedIn</a></li>
 <li><a href="https://wa.me/918017860212" target="_blank">WhatsApp</a></li>
-</ul></div>
-<div class="footer-col"><h4>Info</h4><ul>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Info</h4>
+<ul>
 <li><a href="story.html">Sherry's story</a></li>
 <li><a href="contact.html">Order enquiry</a></li>
 <li><a href="#">Shipping policy</a></li>
 <li><a href="#">Email us</a></li>
-</ul></div>
+</ul>
+</div>
 </div>
 <div class="footer-bottom">
 <p>2025 WoofyTalks. Made with love in Kolkata. Inspired by Sherry.</p>
@@ -491,8 +313,8 @@ footer{padding:40px 24px;}
 <a href="#" class="fsoc" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></a>
 </div>
 </div>
-</div>
 </footer>
-<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.rev').forEach(el=>obs.observe(el));function handleEmail(btn){const v=document.getElementById('emailIn').value;if(!v||!v.includes('@')){document.getElementById('emailIn').style.borderColor='#E85572';btn.textContent='Enter a valid email';setTimeout(()=>{btn.textContent='Join the list';document.getElementById('emailIn').style.borderColor='';},2000);return;}btn.textContent='Thank you!';btn.style.background='#2E6644';btn.disabled=true;}</script>
+
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.rev').forEach(el=>obs.observe(el));function handleEmail(btn){const v=document.getElementById('emailIn').value;if(!v||!v.includes('@')){document.getElementById('emailIn').style.borderColor='#E85572';btn.textContent='Enter a valid email';setTimeout(()=>{btn.textContent='Send it to me';document.getElementById('emailIn').style.borderColor='';},2000);return;}btn.textContent='Thank you!';btn.style.background='#2E6644';btn.disabled=true;}</script>
 </body>
 </html>
