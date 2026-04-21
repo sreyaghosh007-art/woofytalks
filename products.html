@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Products — WoofyTalks</title>
+<meta name="description" content="Two ways to honor the bond. Journals for your heart. Nameplates for your home. Made with love in Kolkata by Sreya Kaur, inspired by Sherry.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#FF8A4C;--orange-d:#D96A2A;--orange-l:#FFF0E6;--truffle:#2A1A0E;--truffle-l:#4A3020;--cream:#FFF8F2;--cream2:#FDF5EC;--sand:#E8D5C0;--sand-d:#C9B49A;--green:#5AAF78;--green-d:#2E6644;--green-l:#EAF7EF;--gold:#C4860A;--gold-l:#FEF7E0;--blush:#E85572;--blush-l:#FDEEF2;--sky:#3A9FCC;--sky-l:#E8F5FC;--muted:#6B4F38;--lighter:#9A7A64;--border:#E8D5C0;--border-strong:#C9B49A;--fh:'Fraunces',Georgia,serif;--fb:'Nunito',sans-serif;--fk:'Caveat',cursive;--radius:16px;--radius-lg:24px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--cream);color:var(--truffle);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(255,248,242,.97);backdrop-filter:blur(20px);border-bottom:1.5px solid var(--border);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo{height:62px;object-fit:contain;flex-shrink:0;}
+.nav-name{font-size:18px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:1px;}
+.nav-name .n1{font-family:var(--fh);font-weight:700;color:var(--truffle);font-size:18px;}
+.nav-name .n2{font-family:var(--fh);font-style:italic;font-weight:400;color:var(--orange);font-size:18px;}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center;}
+.nav-links>li{position:relative;}
+.nav-links>li>a{font-size:14px;font-weight:700;color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:50px;display:flex;align-items:center;gap:4px;transition:all .2s;}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--orange);background:var(--orange-l);}
+.nav-links>li>a .chev{transition:transform .2s;width:12px;height:12px;flex-shrink:0;}
+.nav-links>li:hover>a .chev{transform:rotate(180deg);}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px;min-width:220px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
+.nav-links>li:hover .dropdown{display:block;}
+.dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--truffle);font-size:14px;font-weight:700;transition:all .2s;}
+.dropdown a:hover{background:var(--orange-l);color:var(--orange);}
+.dropdown-hr{height:1px;background:var(--border);margin:4px 8px;}
+.nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:800;text-decoration:none;transition:all .2s;letter-spacing:.2px;}
+.nav-cta:hover{background:var(--truffle);}
+.nav-ham{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+.mob{display:none;position:fixed;top:72px;left:0;right:0;background:var(--cream);border-bottom:1.5px solid var(--border);padding:20px 24px;z-index:499;flex-direction:column;}
+.mob a{display:block;padding:12px 0;font-size:15px;font-weight:700;color:var(--truffle);text-decoration:none;border-bottom:1px solid var(--border);}
+.mob a.sub{padding-left:18px;font-size:14px;color:var(--muted);}
+.mob a.cta{margin-top:14px;background:var(--orange);color:#fff;text-align:center;padding:13px;border-radius:12px;border:none;}
+.mob.open{display:flex;}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:800;color:var(--orange);margin-bottom:14px;display:block;}
+h1.display{font-family:var(--fh);font-size:clamp(38px,5vw,72px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:var(--truffle);}
+h1.display em,h2.display em{font-style:italic;color:var(--orange);}
+h2.display{font-family:var(--fh);font-size:clamp(28px,4vw,52px);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--truffle);}
+.lead{font-size:18px;line-height:1.8;color:var(--muted);}
+.body-text{font-size:15px;line-height:1.8;color:var(--muted);}
+.hand{font-family:var(--fk);font-size:20px;font-weight:700;color:var(--green-d);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:800;text-decoration:none;transition:all .25s;font-family:var(--fb);border:none;cursor:pointer;letter-spacing:.2px;position:relative;overflow:hidden;}
+.btn-icon{width:16px;height:16px;flex-shrink:0;}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 4px 16px rgba(255,138,76,.28);}
+.btn-primary:hover{background:var(--truffle);transform:translateY(-2px);box-shadow:0 8px 24px rgba(42,26,14,.2);}
+.btn-white{background:#fff;color:var(--truffle);}
+.btn-white:hover{background:var(--orange-l);color:var(--orange);}
+.btn::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.2);transform:translate(-50%,-50%);transition:width .5s,height .5s;pointer-events:none;}
+.btn:hover::after{width:340px;height:340px;}
+.page-hero{padding:140px 52px 80px;background:var(--truffle);position:relative;overflow:hidden;text-align:center;}
+.page-hero::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,138,76,.07),transparent 65%);border-radius:50%;pointer-events:none;animation:float-soft 8s ease-in-out infinite;}
+.page-hero h1{color:#fff;margin-bottom:16px;position:relative;}
+.page-hero .lead{color:var(--sand-d);max-width:620px;margin:0 auto;position:relative;}
+.page-hero .eyebrow{color:rgba(255,138,76,.85);position:relative;}
+.hero-paw{position:absolute;color:rgba(255,138,76,.12);pointer-events:none;}
+.hero-paw-1{top:20%;left:8%;width:50px;height:50px;animation:float-slow 7s ease-in-out infinite;}
+.hero-paw-2{top:30%;right:10%;width:40px;height:40px;animation:float-slow 9s ease-in-out infinite 1s;}
+.hero-paw-3{bottom:18%;left:14%;width:35px;height:35px;animation:float-slow 8s ease-in-out infinite 2s;}
+.hero-paw-4{bottom:25%;right:15%;width:45px;height:45px;animation:float-slow 10s ease-in-out infinite .5s;}
+.section{padding:96px 52px;}
+.products-intro{max-width:720px;margin:0 auto;text-align:center;}
+.products-intro p{font-size:17px;line-height:1.8;color:var(--muted);margin-bottom:12px;}
+.products-intro .hand{display:inline-block;margin-top:10px;}
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1200px;margin:70px auto 0;}
+.pcard{background:#fff;border:2px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:inherit;transition:all .5s cubic-bezier(.25,.46,.45,.94);display:flex;flex-direction:column;position:relative;}
+.pcard:hover{transform:translateY(-10px);border-color:var(--orange);box-shadow:0 30px 70px rgba(42,26,14,.15);}
+.pcard-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--cream2);}
+.pcard-img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+.pcard:hover .pcard-img{transform:scale(1.06);}
+.pcard-tag{position:absolute;top:18px;left:18px;background:var(--orange);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:50px;z-index:2;box-shadow:0 4px 14px rgba(255,138,76,.35);}
+.pcard-tag-green{background:var(--green-d);box-shadow:0 4px 14px rgba(46,102,68,.35);}
+.pcard-body{padding:36px 32px 32px;flex:1;display:flex;flex-direction:column;}
+.pcard-kicker{font-family:var(--fk);font-size:20px;color:var(--orange);margin-bottom:8px;}
+.pcard h3{font-family:var(--fh);font-size:32px;font-weight:900;color:var(--truffle);line-height:1.15;margin-bottom:14px;}
+.pcard h3 em{font-style:italic;color:var(--orange);font-weight:400;}
+.pcard-desc{font-size:15px;line-height:1.75;color:var(--muted);margin-bottom:20px;flex:1;}
+.pcard-features{list-style:none;margin-bottom:24px;}
+.pcard-features li{font-size:14px;color:var(--muted);padding:6px 0 6px 26px;position:relative;line-height:1.5;}
+.pcard-features li::before{content:'';position:absolute;left:0;top:12px;width:14px;height:14px;background:var(--orange-l);border-radius:50%;border:1.5px solid var(--orange);}
+.pcard-features li::after{content:'';position:absolute;left:4px;top:16px;width:6px;height:3px;border-left:1.5px solid var(--orange);border-bottom:1.5px solid var(--orange);transform:rotate(-45deg);}
+.pcard-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;border-top:1.5px solid var(--border);}
+.pcard-price{font-family:var(--fh);font-size:22px;font-weight:900;color:var(--truffle);}
+.pcard-price span{font-size:13px;font-weight:600;color:var(--muted);font-family:var(--fb);margin-left:2px;}
+.pcard-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:800;transition:all .25s;}
+.pcard:hover .pcard-cta{background:var(--truffle);gap:12px;}
+.pcard-cta svg{width:14px;height:14px;transition:transform .3s;}
+.pcard:hover .pcard-cta svg{transform:translateX(4px);}
+.pcard-corner{position:absolute;top:0;right:0;width:90px;height:90px;pointer-events:none;z-index:1;opacity:0;transition:opacity .5s;}
+.pcard:hover .pcard-corner{opacity:1;}
+.pcard-corner svg{width:100%;height:100%;color:var(--orange);}
+.why-section{background:var(--cream2);position:relative;overflow:hidden;}
+.why-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,76,.05),transparent 70%);pointer-events:none;animation:float-soft 10s ease-in-out infinite;}
+.why-section::after{content:'';position:absolute;bottom:-120px;left:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(90,175,120,.05),transparent 70%);pointer-events:none;animation:float-soft 12s ease-in-out infinite 2s;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+.why-img-wrap{position:relative;}
+.why-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 24px 72px rgba(42,26,14,.14);transform:rotate(-2deg);transition:transform .5s cubic-bezier(.25,.46,.45,.94);}
+.why-img:hover{transform:rotate(0) scale(1.02);}
+.why-img img{width:100%;display:block;}
+.why-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(42,26,14,.85));padding:44px 28px 28px;border-radius:0 0 var(--radius-lg) var(--radius-lg);pointer-events:none;}
+.why-img-caption-t1{font-family:var(--fh);font-size:20px;font-weight:900;color:#fff;}
+.why-img-caption-t2{font-family:var(--fk);font-size:16px;color:rgba(255,138,76,.9);font-weight:700;margin-top:3px;}
+.why-badge{position:absolute;top:-15px;right:-15px;background:var(--orange);color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:.5px;box-shadow:0 8px 24px rgba(255,138,76,.4);animation:float-slow 5s ease-in-out infinite;z-index:3;}
+.journey-strip{background:var(--truffle);color:#fff;padding:80px 52px;position:relative;overflow:hidden;}
+.journey-strip::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,138,76,.06),transparent 65%);border-radius:50%;pointer-events:none;animation:float-soft 12s ease-in-out infinite;}
+.journey-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2;text-align:center;}
+.journey-inner h2{color:#fff;margin-bottom:14px;}
+.journey-inner h2 em{color:var(--orange);}
+.journey-inner .lead{color:var(--sand-d);max-width:620px;margin:0 auto 50px;}
+.journey-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.jstep{text-align:center;padding:20px 12px;}
+.jstep-num{width:56px;height:56px;border-radius:50%;background:rgba(255,138,76,.15);border:2px solid rgba(255,138,76,.35);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:24px;font-weight:900;color:var(--orange);margin:0 auto 18px;transition:all .35s;}
+.jstep:hover .jstep-num{transform:scale(1.1) rotate(-5deg);background:rgba(255,138,76,.25);}
+.jstep-title{font-family:var(--fh);font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.25;}
+.jstep-body{font-size:14px;line-height:1.75;color:var(--sand-d);}
+.cta-bar{background:var(--orange);color:#fff;padding:72px 52px;text-align:center;position:relative;overflow:hidden;}
+.cta-bar::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.08) 50%,transparent 70%);background-size:200% 100%;animation:shimmer-bg 6s ease-in-out infinite;pointer-events:none;}
+.cta-bar h2{font-family:var(--fh);font-size:clamp(26px,3vw,40px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-.5px;position:relative;}
+.cta-bar p{font-size:16px;color:rgba(255,255,255,.95);max-width:500px;margin:0 auto 26px;line-height:1.75;position:relative;}
+footer{background:var(--truffle);padding:72px 52px 40px;}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.footer-brand-logo{height:68px;object-fit:contain;display:block;margin-bottom:14px;}
+.footer-brand-name{font-size:20px;margin-bottom:10px;display:flex;align-items:baseline;gap:2px;}
+.footer-brand-name .n1{font-family:var(--fh);font-weight:700;color:#fff;font-size:20px;}
+.footer-brand-name .n2{font-family:var(--fh);font-style:italic;font-weight:400;color:var(--orange);font-size:20px;}
+.footer-brand-desc{font-size:14px;line-height:1.85;color:var(--sand-d);max-width:250px;}
+.footer-brand-hand{font-family:var(--fk);font-size:17px;color:var(--green);margin-top:10px;display:block;}
+.footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:rgba(255,138,76,.7);margin-bottom:18px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{font-size:14px;color:var(--sand-d);text-decoration:none;transition:color .2s;}
+.footer-col a:hover{color:var(--orange);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,.3);}
+.footer-socials{display:flex;gap:8px;}
+.fsoc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s cubic-bezier(.25,.46,.45,.94);}
+.fsoc:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-3px) rotate(-4deg);}
+.fsoc svg{width:16px;height:16px;color:var(--sand-d);transition:color .2s;}
+.fsoc:hover svg{color:#fff;}
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.rev.visible{opacity:1;transform:translateY(0);}
+.rev-l{opacity:0;transform:translateX(-40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
+.rev-l.visible{opacity:1;transform:translateX(0);}
+.rev-r{opacity:0;transform:translateX(40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
+.rev-r.visible{opacity:1;transform:translateX(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}
+@keyframes float-soft{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes float-slow{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(4deg);}}
+@keyframes shimmer-bg{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+@keyframes fade-in-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes gradient-shift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.page-hero h1{animation:fade-in-up .9s ease-out both;}
+.page-hero .lead{animation:fade-in-up .9s ease-out .2s both;}
+.page-hero .eyebrow{animation:fade-in-up .9s ease-out both;}
+.gradient-text{background:linear-gradient(90deg,var(--orange),var(--blush),var(--orange));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 5s ease-in-out infinite;font-style:italic;}
+@media(max-width:960px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-ham{display:block;}.section,.journey-strip,.cta-bar{padding:60px 24px;}.page-hero{padding:110px 24px 60px;}.products-grid{grid-template-columns:1fr;gap:28px;}.why-grid{grid-template-columns:1fr;gap:40px;}.journey-steps{grid-template-columns:1fr;gap:28px;}.footer-grid{grid-template-columns:1fr 1fr;gap:28px;padding:60px 24px;}footer{padding:0 0 32px;}.footer-bottom{padding:0 24px;}.hero-paw{display:none;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;}.pcard-body{padding:26px 22px 22px;}.pcard h3{font-size:26px;}.pcard-footer{flex-direction:column;align-items:stretch;gap:12px;}.pcard-cta{justify-content:center;}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="images/img_00.png" alt="WoofyTalks" class="nav-logo">
+    <span class="nav-name"><span class="n1">Woofy</span><span class="n2">Talks</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li>
+      <a href="products.html" class="active">Products
+        <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="dropdown">
+        <a href="journals.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h7a4 4 0 014 4v13a3 3 0 00-3-3H4z"/><path d="M20 4h-7a4 4 0 00-4 4v13a3 3 0 013-3h8z"/></svg></span> Journals</a>
+        <div class="dropdown-hr"></div>
+        <a href="nameplates.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Name Plates</a>
+      </div>
+    </li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="journals.html" class="nav-cta">Shop Now</a>
+  <button class="nav-ham" onclick="document.getElementById('mob').classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect y="4" width="22" height="2" rx="1" fill="#2A1A0E"/><rect y="10" width="22" height="2" rx="1" fill="#2A1A0E"/><rect y="16" width="22" height="2" rx="1" fill="#2A1A0E"/></svg>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a>
+  <a href="story.html">Our Story</a>
+  <a href="products.html">Products</a>
+  <a href="journals.html" class="sub">— Journals</a>
+  <a href="nameplates.html" class="sub">— Name Plates</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="journals.html" class="cta">Shop Now</a>
+</div>
+
+<div class="page-hero">
+  <svg class="hero-paw hero-paw-1" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <svg class="hero-paw hero-paw-2" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <svg class="hero-paw hero-paw-3" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <svg class="hero-paw hero-paw-4" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <span class="eyebrow">What we make</span>
+  <h1 class="display">Two ways to honor<br><em class="gradient-text">the bond.</em></h1>
+  <p class="lead">One is for your heart. One is for your home. Both are made by hand in Kolkata, with Sherry watching closely to make sure we get it right.</p>
+</div>
+
+<section class="section">
+  <div class="products-intro rev">
+    <p>Every WoofyTalks product starts from the same place: <strong>the quiet, ordinary moments you share with your dog</strong>. The nap at your feet. The way they know when you're sad. The tail that starts wagging the moment they hear your keys.</p>
+    <p>We make things that hold space for that love. And things that announce it proudly on your front door.</p>
+    <span class="hand">Pick your poison ♥</span>
+  </div>
+
+  <div class="products-grid">
+    <a href="journals.html" class="pcard rev-l">
+      <div class="pcard-corner">
+        <svg viewBox="0 0 90 90" fill="none"><path d="M0 0h90v90L0 0z" fill="currentColor" opacity=".08"/><circle cx="70" cy="20" r="4" fill="currentColor"/><circle cx="56" cy="14" r="3" fill="currentColor" opacity=".7"/><circle cx="78" cy="34" r="3" fill="currentColor" opacity=".7"/></svg>
+      </div>
+      <div class="pcard-img-wrap">
+        <span class="pcard-tag">Journals</span>
+        <img src="images/The_Quiet_Dog_Journal_.png" alt="The Quiet Dog Journal" class="pcard-img">
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-kicker">for your heart</div>
+        <h3>Journals that <em>listen back.</em></h3>
+        <p class="pcard-desc">Thoughtful, prompt-led journals designed to help you hold space for your dog. Every page is a love letter to the ordinary moments, the milestones, and the quiet ones that mattered most.</p>
+        <ul class="pcard-features">
+          <li>Reflective prompts for every day with your dog</li>
+          <li>Digital formats you can print at home or read on any device</li>
+          <li>Made for first-time parents, senior-dog parents, and everyone in between</li>
+        </ul>
+        <div class="pcard-footer">
+          <div class="pcard-price">Rs. 499<span> onwards</span></div>
+          <span class="pcard-cta">Browse journals <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <a href="nameplates.html" class="pcard rev-r">
+      <div class="pcard-corner">
+        <svg viewBox="0 0 90 90" fill="none"><path d="M0 0h90v90L0 0z" fill="currentColor" opacity=".08"/><circle cx="70" cy="20" r="4" fill="currentColor"/><circle cx="56" cy="14" r="3" fill="currentColor" opacity=".7"/><circle cx="78" cy="34" r="3" fill="currentColor" opacity=".7"/></svg>
+      </div>
+      <div class="pcard-img-wrap">
+        <span class="pcard-tag pcard-tag-green">Nameplates</span>
+        <img src="images/Listing.png" alt="Custom Name Plate" class="pcard-img">
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-kicker">for your home</div>
+        <h3>Nameplates that <em>announce them.</em></h3>
+        <p class="pcard-desc">A handcrafted declaration for your front door. Your names, your dog's face, your tagline. Printed on sunboard, delivered anywhere in India. Because every home with a dog in it is a different kind of home.</p>
+        <ul class="pcard-features">
+          <li>10+ handcrafted designs and growing</li>
+          <li>Custom-made with your family's names and your dog's photo</li>
+          <li>Shipped pan-India, carefully packed</li>
+        </ul>
+        <div class="pcard-footer">
+          <div class="pcard-price">Rs. 1,399<span> onwards</span></div>
+          <span class="pcard-cta">Browse nameplates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="why-section section">
+  <div class="why-grid">
+    <div class="why-img-wrap rev-l">
+      <div class="why-badge">4 years of Sherry</div>
+      <div class="why-img">
+        <img src="images/Sherry_2.png" alt="Sreya and Sherry">
+        <div class="why-img-caption">
+          <div class="why-img-caption-t1">Sreya &amp; Sherry</div>
+          <div class="why-img-caption-t2">the reason any of this exists</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-r">
+      <span class="eyebrow">Why both exist</span>
+      <h2 class="display">Different forms.<br><em>Same feeling.</em></h2>
+      <p class="body-text" style="margin-bottom:18px;">The journals came first, born out of the small moments I wanted to remember about Sherry and the bigger ones I needed to process. Writing helped. So I built the journals I wished had existed on Day 1.</p>
+      <p class="body-text" style="margin-bottom:18px;">The nameplates came next. Because somewhere between the hundredth photo and the thousandth tail wag, I realised our home had fundamentally changed the day Sherry walked in. It deserved to say so on the door.</p>
+      <p class="body-text" style="margin-bottom:26px;">Both are handcrafted. Both come from the same place. <strong>Both are for you, if you're the kind of dog parent who feels everything.</strong></p>
+      <span class="hand">love knows no breed</span>
+    </div>
+  </div>
+</section>
+
+<section class="journey-strip">
+  <div class="journey-inner">
+    <span class="eyebrow" style="color:rgba(255,138,76,.85);">How it works</span>
+    <h2 class="display" style="color:#fff;">Simple, from <em>start to shelf.</em></h2>
+    <p class="lead">Whether you're picking a journal or a nameplate, getting it into your hands is the easy part.</p>
+    <div class="journey-steps">
+      <div class="jstep rev rd1">
+        <div class="jstep-num">1</div>
+        <div class="jstep-title">Pick what feels right</div>
+        <div class="jstep-body">Browse journals for the heart or nameplates for the door. Find the one that sounds like you and your dog.</div>
+      </div>
+      <div class="jstep rev rd2">
+        <div class="jstep-num">2</div>
+        <div class="jstep-title">Share your story</div>
+        <div class="jstep-body">For nameplates, send us your names and a photo. For journals, just grab and go. Instant delivery to your inbox.</div>
+      </div>
+      <div class="jstep rev rd3">
+        <div class="jstep-num">3</div>
+        <div class="jstep-title">Receive with love</div>
+        <div class="jstep-body">Nameplates shipped pan-India, carefully packed. Journals downloadable instantly. All made with Sherry's quiet approval.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-bar">
+  <h2>Ready to start?</h2>
+  <p>Your dog is already the best thing that happened to your home. Let's make the rest of it catch up.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;">
+    <a href="journals.html" class="btn btn-white">Shop journals <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="nameplates.html" class="btn btn-white">Shop nameplates <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="images/img_23.png" alt="WoofyTalks" class="footer-brand-logo">
+      <div class="footer-brand-name"><span class="n1">Woofy</span><span class="n2">Talks</span></div>
+      <p class="footer-brand-desc">For the dog parent who feels everything. Inspired by Sherry, who chose me and changed my life. Made with love in Kolkata.</p>
+      <span class="footer-brand-hand">love knows no breed</span>
+    </div>
+    <div class="footer-col"><h4>Pages</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="journals.html">Journals</a></li>
+      <li><a href="nameplates.html">Name Plates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul>
+      <li><a href="https://instagram.com/woofy_talks" target="_blank">@woofy_talks</a></li>
+      <li><a href="https://instagram.com/sher_o_sherry" target="_blank">@sher_o_sherry</a></li>
+      <li><a href="https://www.facebook.com/share/18PBwGQE1A/" target="_blank">Facebook</a></li>
+      <li><a href="https://www.linkedin.com/company/woofytalks/" target="_blank">LinkedIn</a></li>
+      <li><a href="https://wa.me/918017860212" target="_blank">WhatsApp</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Info</h4><ul>
+      <li><a href="story.html">Sherry's story</a></li>
+      <li><a href="contact.html">Order enquiry</a></li>
+      <li><a href="#">Shipping policy</a></li>
+      <li><a href="contact.html">Email us</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>2025 WoofyTalks · Made with love in Kolkata · Inspired by Sherry</p>
+    <div class="footer-socials">
+      <a href="https://instagram.com/woofy_talks" target="_blank" class="fsoc" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://instagram.com/sher_o_sherry" target="_blank" class="fsoc" title="Sherry's Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg></a>
+      <a href="https://wa.me/918017860212" target="_blank" class="fsoc" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});
+document.querySelectorAll('.rev, .rev-l, .rev-r').forEach(el=>obs.observe(el));
+setTimeout(()=>{document.querySelectorAll('.rev:not(.visible), .rev-l:not(.visible), .rev-r:not(.visible)').forEach(el=>el.classList.add('visible'));},800);
+</script>
+</body>
+</html>
