@@ -41,7 +41,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--orange);background:var(--orange-l);}
 .nav-links>li>a .chev{transition:transform .2s;width:12px;height:12px;flex-shrink:0;}
 .nav-links>li:hover>a .chev{transform:rotate(180deg);}
-.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px;min-width:200px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
+.dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px;padding-top:14px;min-width:200px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
+.dropdown::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
 .nav-links>li:hover .dropdown{display:block;}
 .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--truffle);font-size:14px;font-weight:700;transition:all .2s;}
 .dropdown a:hover{background:var(--orange-l);color:var(--orange);}
@@ -102,14 +103,71 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 .fsoc:hover{background:var(--orange);color:#fff;transform:translateY(-2px);}
 .fsoc svg{width:18px;height:18px;}
 
-@media(max-width:900px){
+@media(max-width:960px){
   nav{padding:0 20px;}
+  .nav-links,.nav-cta{display:none;}
+  .nav-ham{display:block;}
   .hero h1{font-size:38px;}
   .blog-section{padding:0 20px 80px;}
   .blog-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
   .footer-bottom{justify-content:center;text-align:center;}
+  .hero-paw{display:none;}
 }
+
+/* ── NAV CTA & MOBILE MENU (matching other pages) ── */
+.nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:800;text-decoration:none;transition:all .2s;letter-spacing:.2px;}
+.nav-cta:hover{background:var(--truffle);}
+.nav-ham{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+.mob{display:none;position:fixed;top:72px;left:0;right:0;background:var(--cream);border-bottom:1.5px solid var(--border);padding:20px 24px;z-index:499;flex-direction:column;}
+.mob a{display:block;padding:12px 0;font-size:15px;font-weight:700;color:var(--truffle);text-decoration:none;border-bottom:1px solid var(--border);}
+.mob a.sub{padding-left:18px;font-size:14px;color:var(--muted);}
+.mob a.cta{margin-top:14px;background:var(--orange);color:#fff;text-align:center;padding:13px;border-radius:12px;border:none;}
+.mob.open{display:flex;}
+
+/* ── REVEAL ANIMATIONS ── */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.rev.visible{opacity:1;transform:translateY(0);}
+.rev-l{opacity:0;transform:translateX(-40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
+.rev-l.visible{opacity:1;transform:translateX(0);}
+.rev-r{opacity:0;transform:translateX(40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
+.rev-r.visible{opacity:1;transform:translateX(0);}
+.rev-s{opacity:0;transform:scale(.92);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
+.rev-s.visible{opacity:1;transform:scale(1);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}.rd4{transition-delay:.4s;}
+@keyframes float-soft{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes float-slow{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-6px) rotate(3deg);}}
+@keyframes fade-in-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes gradient-shift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+
+/* ── HERO ANIMATIONS ── */
+.hero .hero-tag{animation:fade-in-up .9s ease-out both;}
+.hero h1{animation:fade-in-up .9s ease-out .15s both;}
+.hero p{animation:fade-in-up .9s ease-out .3s both;}
+.hero::before{animation:float-soft 8s ease-in-out infinite;}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--orange),var(--blush),var(--orange));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 5s ease-in-out infinite;}
+
+/* ── FLOATING PAWS IN HERO ── */
+.hero-paw{position:absolute;color:rgba(255,138,76,.12);pointer-events:none;}
+.hero-paw-1{top:22%;left:7%;width:46px;height:46px;animation:float-slow 7s ease-in-out infinite;}
+.hero-paw-2{top:30%;right:9%;width:38px;height:38px;animation:float-slow 9s ease-in-out infinite 1s;}
+.hero-paw-3{bottom:20%;left:15%;width:34px;height:34px;animation:float-slow 8s ease-in-out infinite 2s;}
+.hero-paw-4{bottom:24%;right:14%;width:42px;height:42px;animation:float-slow 10s ease-in-out infinite .5s;}
+
+/* ── BLOG CARD INTERACTIONS ── */
+.blog-card{transition:all .45s cubic-bezier(.25,.46,.45,.94);position:relative;}
+.blog-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(42,26,14,.13);}
+.blog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--blush));border-radius:var(--radius-lg) var(--radius-lg) 0 0;opacity:0;transition:opacity .35s;z-index:2;}
+.blog-card:hover::before{opacity:1;}
+.blog-card .blog-card-tag{transition:all .3s;}
+.blog-card:hover .blog-card-tag{background:var(--orange);color:#fff;}
+.blog-card .blog-img-wrap img{transition:transform .6s cubic-bezier(.25,.46,.45,.94);}
+.blog-card:hover .blog-img-wrap img{transform:scale(1.06);}
+
+/* ── FOOTER SOCIAL HOVER ── */
+.fsoc{transition:all .3s cubic-bezier(.25,.46,.45,.94);}
+.fsoc:hover{transform:translateY(-3px) rotate(-4deg);}
+
 </style>
 </head>
 <body>
@@ -124,31 +182,49 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
     <li><a href="index.html">Home</a></li>
     <li><a href="story.html">Our Story</a></li>
     <li>
-      <a href="journals.html">Products
+      <a href="products.html">Products
         <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="dropdown">
         <a href="journals.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h7a4 4 0 014 4v13a3 3 0 00-3-3H4z"/><path d="M20 4h-7a4 4 0 00-4 4v13a3 3 0 013-3h8z"/></svg></span> Journals</a>
         <div class="dropdown-hr"></div>
-        <a href="nameplates.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Name Plates <span class="soon-tag">Soon</span></a>
+        <a href="nameplates.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Name Plates</a>
       </div>
     </li>
     <li><a href="blog.html" class="active">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+  <a href="journals.html" class="nav-cta">Shop Now</a>
+  <button class="nav-ham" onclick="toggleMob()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect y="4" width="22" height="2" rx="1" fill="#2A1A0E"/><rect y="10" width="22" height="2" rx="1" fill="#2A1A0E"/><rect y="16" width="22" height="2" rx="1" fill="#2A1A0E"/></svg>
+  </button>
 </nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a>
+  <a href="story.html">Our Story</a>
+  <a href="products.html">Products</a>
+  <a href="journals.html" class="sub">— Journals</a>
+  <a href="nameplates.html" class="sub">— Name Plates</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="journals.html" class="cta">Shop Now</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
+  <svg class="hero-paw hero-paw-1" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <svg class="hero-paw hero-paw-2" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <svg class="hero-paw hero-paw-3" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+  <svg class="hero-paw hero-paw-4" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
   <div class="hero-content">
     <div class="hero-tag">Tales from the heart</div>
-    <h1>The WoofyTalks Blog</h1>
+    <h1>The WoofyTalks <em>Blog</em></h1>
     <p>Stories about dog parenting, product insights, Sherry's adventures, and everything that makes our bond with dogs so special.</p>
   </div>
 </section>
 
 <!-- SECTION HEADING -->
-<div class="section-label">
+<div class="section-label rev">
   <h2>Stories Worth Sitting With</h2>
   <p>Honest reflections on life with dogs written slowly, for those who pay attention</p>
 </div>
@@ -158,7 +234,7 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
   <div class="blog-grid">
 
     <!-- CARD 1 -->
-    <a href="blog-post.html" class="blog-card">
+    <a href="blog-post.html" class="blog-card rev">
       <div class="blog-img-wrap">
         <img src="images/Blog_1.png" alt="Why I Started WoofyTalks">
       </div>
@@ -186,14 +262,14 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
     </a>
 
     <!-- CARD 2 -->
-    <a href="blog-post-2.html" class="blog-card">
+    <a href="blog-post-2.html" class="blog-card rev rd1">
       <div class="blog-img-wrap">
         <img src="images/Thumbnail_1.png" alt="The Walk Is More Than Exercise">
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Dog Behaviour</span>
         <h3 class="blog-card-title">The Walk Is More Than Exercise</h3>
-        <p class="blog-card-excerpt">We think the walk is about burning energy. But dogs experience it as something much deeper — a ritual of trust, leadership, and connection that shapes everything else.</p>
+        <p class="blog-card-excerpt">We think the walk is about burning energy. But dogs experience it as something much deeper, a ritual of trust, leadership, and connection that shapes everything else.</p>
         <div class="blog-card-meta">
           <div class="blog-card-meta-left">
             <span>
@@ -214,7 +290,7 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
     </a>
 
     <!-- Placeholder card (for future posts) -->
-    <div class="blog-card" style="opacity:.35;pointer-events:none;">
+    <div class="blog-card rev rd2" style="opacity:.35;pointer-events:none;">
       <div class="blog-img-wrap" style="background:var(--sand);"></div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Coming Soon</span>
@@ -274,10 +350,11 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 10);
-  });
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});
+document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el=>obs.observe(el));
+setTimeout(()=>{document.querySelectorAll('.rev:not(.visible), .rev-l:not(.visible), .rev-r:not(.visible), .rev-s:not(.visible)').forEach(el=>el.classList.add('visible'));},800);
+function toggleMob(){document.getElementById('mob').classList.toggle('open');}
 </script>
 
 </body>
