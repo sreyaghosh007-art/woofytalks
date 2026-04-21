@@ -42,8 +42,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--orange);background:var(--orange-l);}
 .nav-links>li>a .chev{transition:transform .2s;width:12px;height:12px;flex-shrink:0;}
 .nav-links>li:hover>a .chev{transform:rotate(180deg);}
-.dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px;padding-top:14px;min-width:220px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
-.dropdown::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px;min-width:220px;box-shadow:0 8px 32px rgba(42,26,14,.1);z-index:100;}
 .nav-links>li:hover .dropdown{display:block;}
 .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--truffle);font-size:14px;font-weight:700;transition:all .2s;}
 .dropdown a:hover{background:var(--orange-l);color:var(--orange);}
@@ -314,6 +313,7 @@ footer{background:var(--truffle);padding:72px 52px 40px;}
         <a href="nameplates.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Name Plates</a>
       </div>
     </li>
+    <li><a href="blog.html" class="">Blog</a></li>
     <li><a href="contact.html" class="">Contact</a></li>
   </ul>
   <a href="journals.html" class="nav-cta">Shop Now</a>
@@ -327,6 +327,7 @@ footer{background:var(--truffle);padding:72px 52px 40px;}
   <a href="products.html" onclick="document.getElementById('mob').classList.remove('open')">Products</a>
   <a href="journals.html" class="sub" onclick="document.getElementById('mob').classList.remove('open')">— Journals</a>
   <a href="nameplates.html" class="sub" onclick="document.getElementById('mob').classList.remove('open')">— Name Plates</a>
+  <a href="blog.html" onclick="document.getElementById('mob').classList.remove('open')">Blog</a>
   <a href="contact.html" onclick="document.getElementById('mob').classList.remove('open')">Contact</a>
   <a href="journals.html" class="cta" onclick="document.getElementById('mob').classList.remove('open')">Shop Now</a>
 </div>
@@ -461,6 +462,7 @@ footer{background:var(--truffle);padding:72px 52px 40px;}
       <li><a href="story.html">Our Story</a></li>
       <li><a href="journals.html">Journals</a></li>
       <li><a href="nameplates.html">Name Plates</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul></div>
     <div class="footer-col"><h4>Connect</h4><ul>
