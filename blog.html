@@ -27,7 +27,6 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--fb);background:var(--cream);color:var(--truffle);overflow-x:hidden;}
 
-/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(255,248,242,0.97);backdrop-filter:blur(20px);border-bottom:1.5px solid var(--border);transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
@@ -49,7 +48,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .dropdown-hr{height:1px;background:var(--border);margin:4px 8px;}
 .soon-tag{font-size:10px;font-weight:800;background:var(--gold-l);color:var(--gold);padding:2px 8px;border-radius:20px;margin-left:auto;}
 
-/* ── HERO ── */
 .hero{min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 72px;background:linear-gradient(135deg,var(--cream) 0%,var(--cream2) 50%,var(--orange-l) 100%);position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-40%;right:-15%;width:560px;height:560px;background:radial-gradient(circle,rgba(255,138,76,0.09),transparent 70%);border-radius:50%;}
 .hero-content{position:relative;z-index:1;max-width:720px;}
@@ -57,12 +55,10 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .hero h1{font-family:var(--fh);font-size:52px;font-weight:900;line-height:1.1;margin-bottom:16px;color:var(--truffle);}
 .hero p{font-size:17px;color:var(--muted);line-height:1.6;max-width:580px;margin:0 auto;}
 
-/* ── SECTION LABEL ── */
 .section-label{text-align:center;padding:64px 20px 40px;}
 .section-label h2{font-family:var(--fh);font-size:34px;font-weight:700;margin-bottom:10px;color:var(--truffle);}
 .section-label p{font-size:16px;color:var(--muted);}
 
-/* ── BLOG CARD GRID ── */
 .blog-section{padding:0 40px 100px;max-width:1400px;margin:0 auto;}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px;}
 
@@ -83,7 +79,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(42,26,14,.07);}
 .blog-read-link{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--orange);transition:gap .2s;}
 .blog-card:hover .blog-read-link{gap:9px;}
 
-/* ── FOOTER ── */
 footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1400px;margin:0 auto 40px;padding-bottom:40px;border-bottom:1px solid rgba(255,248,242,.15);}
 .footer-brand-logo{height:56px;object-fit:contain;margin-bottom:6px;display:block;opacity:.9;}
@@ -103,76 +98,16 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 .fsoc:hover{background:var(--orange);color:#fff;transform:translateY(-2px);}
 .fsoc svg{width:18px;height:18px;}
 
-@media(max-width:960px){
+@media(max-width:900px){
   nav{padding:0 20px;}
-  .nav-links,.nav-cta{display:none;}
-  .nav-ham{display:block;}
-  .hero h1{font-size:38px;}
-  .blog-section{padding:0 20px 80px;}
   .blog-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
   .footer-bottom{justify-content:center;text-align:center;}
-  .hero-paw{display:none;}
 }
-
-/* ── NAV CTA & MOBILE MENU (matching other pages) ── */
-.nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:800;text-decoration:none;transition:all .2s;letter-spacing:.2px;}
-.nav-cta:hover{background:var(--truffle);}
-.nav-ham{display:none;background:none;border:none;cursor:pointer;padding:4px;}
-.mob{display:none;position:fixed;top:72px;left:0;right:0;background:var(--cream);border-bottom:1.5px solid var(--border);padding:20px 24px;z-index:499;flex-direction:column;}
-.mob a{display:block;padding:12px 0;font-size:15px;font-weight:700;color:var(--truffle);text-decoration:none;border-bottom:1px solid var(--border);}
-.mob a.sub{padding-left:18px;font-size:14px;color:var(--muted);}
-.mob a.cta{margin-top:14px;background:var(--orange);color:#fff;text-align:center;padding:13px;border-radius:12px;border:none;}
-.mob.open{display:flex;}
-
-/* ── REVEAL ANIMATIONS ── */
-.rev{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
-.rev.visible{opacity:1;transform:translateY(0);}
-.rev-l{opacity:0;transform:translateX(-40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
-.rev-l.visible{opacity:1;transform:translateX(0);}
-.rev-r{opacity:0;transform:translateX(40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
-.rev-r.visible{opacity:1;transform:translateX(0);}
-.rev-s{opacity:0;transform:scale(.92);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
-.rev-s.visible{opacity:1;transform:scale(1);}
-.rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}.rd4{transition-delay:.4s;}
-@keyframes float-soft{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-@keyframes float-slow{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-6px) rotate(3deg);}}
-@keyframes fade-in-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes gradient-shift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
-
-/* ── HERO ANIMATIONS ── */
-.hero .hero-tag{animation:fade-in-up .9s ease-out both;}
-.hero h1{animation:fade-in-up .9s ease-out .15s both;}
-.hero p{animation:fade-in-up .9s ease-out .3s both;}
-.hero::before{animation:float-soft 8s ease-in-out infinite;}
-.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--orange),var(--blush),var(--orange));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 5s ease-in-out infinite;}
-
-/* ── FLOATING PAWS IN HERO ── */
-.hero-paw{position:absolute;color:rgba(255,138,76,.12);pointer-events:none;}
-.hero-paw-1{top:22%;left:7%;width:46px;height:46px;animation:float-slow 7s ease-in-out infinite;}
-.hero-paw-2{top:30%;right:9%;width:38px;height:38px;animation:float-slow 9s ease-in-out infinite 1s;}
-.hero-paw-3{bottom:20%;left:15%;width:34px;height:34px;animation:float-slow 8s ease-in-out infinite 2s;}
-.hero-paw-4{bottom:24%;right:14%;width:42px;height:42px;animation:float-slow 10s ease-in-out infinite .5s;}
-
-/* ── BLOG CARD INTERACTIONS ── */
-.blog-card{transition:all .45s cubic-bezier(.25,.46,.45,.94);position:relative;}
-.blog-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(42,26,14,.13);}
-.blog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--blush));border-radius:var(--radius-lg) var(--radius-lg) 0 0;opacity:0;transition:opacity .35s;z-index:2;}
-.blog-card:hover::before{opacity:1;}
-.blog-card .blog-card-tag{transition:all .3s;}
-.blog-card:hover .blog-card-tag{background:var(--orange);color:#fff;}
-.blog-card .blog-img-wrap img{transition:transform .6s cubic-bezier(.25,.46,.45,.94);}
-.blog-card:hover .blog-img-wrap img{transform:scale(1.06);}
-
-/* ── FOOTER SOCIAL HOVER ── */
-.fsoc{transition:all .3s cubic-bezier(.25,.46,.45,.94);}
-.fsoc:hover{transform:translateY(-3px) rotate(-4deg);}
-
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-brand">
     <img src="images/img_00.png" alt="WoofyTalks Logo" class="nav-logo">
@@ -182,127 +117,165 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
     <li><a href="index.html">Home</a></li>
     <li><a href="story.html">Our Story</a></li>
     <li>
-      <a href="products.html">Products
+      <a href="journals.html">Products
         <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="dropdown">
         <a href="journals.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h7a4 4 0 014 4v13a3 3 0 00-3-3H4z"/><path d="M20 4h-7a4 4 0 00-4 4v13a3 3 0 013-3h8z"/></svg></span> Journals</a>
         <div class="dropdown-hr"></div>
-        <a href="nameplates.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Name Plates</a>
+        <a href="nameplates.html"><span style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Name Plates <span class="soon-tag">Soon</span></a>
       </div>
     </li>
     <li><a href="blog.html" class="active">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="journals.html" class="nav-cta">Shop Now</a>
-  <button class="nav-ham" onclick="toggleMob()">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect y="4" width="22" height="2" rx="1" fill="#2A1A0E"/><rect y="10" width="22" height="2" rx="1" fill="#2A1A0E"/><rect y="16" width="22" height="2" rx="1" fill="#2A1A0E"/></svg>
-  </button>
 </nav>
-<div class="mob" id="mob">
-  <a href="index.html">Home</a>
-  <a href="story.html">Our Story</a>
-  <a href="products.html">Products</a>
-  <a href="journals.html" class="sub">— Journals</a>
-  <a href="nameplates.html" class="sub">— Name Plates</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
-  <a href="journals.html" class="cta">Shop Now</a>
-</div>
 
-<!-- HERO -->
-<section class="hero">
-  <svg class="hero-paw hero-paw-1" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
-  <svg class="hero-paw hero-paw-2" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
-  <svg class="hero-paw hero-paw-3" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
-  <svg class="hero-paw hero-paw-4" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="17" rx="5" ry="4"/><ellipse cx="6" cy="11" rx="2.5" ry="3"/><ellipse cx="18" cy="11" rx="2.5" ry="3"/><ellipse cx="9" cy="7" rx="2" ry="2.5"/><ellipse cx="15" cy="7" rx="2" ry="2.5"/></svg>
+<div class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Tales from the heart</div>
-    <h1>The WoofyTalks <em>Blog</em></h1>
-    <p>Stories about dog parenting, product insights, Sherry's adventures, and everything that makes our bond with dogs so special.</p>
+    <span class="hero-tag">Our Journal</span>
+    <h1>Stories, Tips & Reflections</h1>
+    <p>Heartfelt moments from the world of dog parenting. For the ones who feel everything.</p>
   </div>
-</section>
-
-<!-- SECTION HEADING -->
-<div class="section-label rev">
-  <h2>Stories Worth Sitting With</h2>
-  <p>Honest reflections on life with dogs written slowly, for those who pay attention</p>
 </div>
 
-<!-- BLOG CARD GRID -->
-<section class="blog-section">
-  <div class="blog-grid">
+<div class="section-label">
+  <h2>Latest Articles</h2>
+  <p>Thoughts on dog parenting, journaling, and the bond we share with our furry best friends.</p>
+</div>
 
-    <!-- CARD 1 -->
-    <a href="blog-post.html" class="blog-card rev">
+<div class="blog-section">
+  <div class="blog-grid">
+    
+    <a href="blog-post.html" class="blog-card">
       <div class="blog-img-wrap">
-        <img src="images/Blog_1.png" alt="Why I Started WoofyTalks">
+        <img src="images/Thumbnail.png" alt="Why I Started WoofyTalks">
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Origin Story</span>
         <h3 class="blog-card-title">Why I Started WoofyTalks</h3>
-        <p class="blog-card-excerpt">When I first became a dog parent, I thought I understood what it meant. But small things kept pulling me to pay closer attention and that changed everything.</p>
+        <p class="blog-card-excerpt">When I first became a dog parent, I thought I understood what it meant. But small things kept pulling me to pay closer attention...</p>
         <div class="blog-card-meta">
           <div class="blog-card-meta-left">
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              March 2026
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              5 min read
-            </span>
+            <span>June 2025</span>
+            <span>5 min read</span>
           </div>
-          <span class="blog-read-link">
-            Read
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
+          <span class="blog-read-link">Read →</span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 2 -->
-    <a href="blog-post-2.html" class="blog-card rev rd1">
+    <a href="blog-post-2.html" class="blog-card">
       <div class="blog-img-wrap">
-        <img src="images/Thumbnail_1.png" alt="The Walk Is More Than Exercise">
+        <img src="images/Thumbnail_2.png" alt="Understanding Your Dog Better">
       </div>
       <div class="blog-card-body">
-        <span class="blog-card-tag">Dog Behaviour</span>
-        <h3 class="blog-card-title">The Walk Is More Than Exercise</h3>
-        <p class="blog-card-excerpt">We think the walk is about burning energy. But dogs experience it as something much deeper, a ritual of trust, leadership, and connection that shapes everything else.</p>
+        <span class="blog-card-tag">Dog Parenting</span>
+        <h3 class="blog-card-title">Understanding Your Dog Better</h3>
+        <p class="blog-card-excerpt">Behaviour is often a response to the environment, to energy, to consistency, or the lack of it. Once you start looking at behaviour this way...</p>
         <div class="blog-card-meta">
           <div class="blog-card-meta-left">
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              April 2026
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              6 min read
-            </span>
+            <span>June 2025</span>
+            <span>6 min read</span>
           </div>
-          <span class="blog-read-link">
-            Read
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
+          <span class="blog-read-link">Read →</span>
         </div>
       </div>
     </a>
 
-    <!-- Placeholder card (for future posts) -->
-    <div class="blog-card rev rd2" style="opacity:.35;pointer-events:none;">
-      <div class="blog-img-wrap" style="background:var(--sand);"></div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Coming Soon</span>
-        <h3 class="blog-card-title">More stories on the way…</h3>
-        <p class="blog-card-excerpt">New reflections, insights and everyday moments with dogs are being written. Stay tuned.</p>
+    <a href="blog-post-3.html" class="blog-card">
+      <div class="blog-img-wrap">
+        <img src="images/Thumbnail_3.png" alt="Dog Journal Ideas">
       </div>
-    </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Dog Journaling</span>
+        <h3 class="blog-card-title">Dog Journal Ideas: 10 Things to Document</h3>
+        <p class="blog-card-excerpt">You take hundreds of photos of your dog. But do you remember the exact day they stopped being afraid? That's what a dog journal is for...</p>
+        <div class="blog-card-meta">
+          <div class="blog-card-meta-left">
+            <span>May 2026</span>
+            <span>6 min read</span>
+          </div>
+          <span class="blog-read-link">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-post-4.html" class="blog-card">
+      <div class="blog-img-wrap">
+        <img src="images/Thumbnail_4.png" alt="Why Dog Parents Need Journals">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Dog Journaling</span>
+        <h3 class="blog-card-title">Why Dog Parents Need Journals (Not Just Photos)</h3>
+        <p class="blog-card-excerpt">You have 1,000 photos. You're still forgetting. Photos show what they looked like. Journals show who they were...</p>
+        <div class="blog-card-meta">
+          <div class="blog-card-meta-left">
+            <span>May 2026</span>
+            <span>5 min read</span>
+          </div>
+          <span class="blog-read-link">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-post-5.html" class="blog-card">
+      <div class="blog-img-wrap">
+        <img src="images/Thumbnail_5.png" alt="Personalized Dog Nameplate">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Dog Products</span>
+        <h3 class="blog-card-title">How to Choose a Personalized Dog Nameplate</h3>
+        <p class="blog-card-excerpt">Your dog deserves a space with their name. A personalized dog nameplate celebrates who they are and their place in your home...</p>
+        <div class="blog-card-meta">
+          <div class="blog-card-meta-left">
+            <span>May 2026</span>
+            <span>7 min read</span>
+          </div>
+          <span class="blog-read-link">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-post-6.html" class="blog-card">
+      <div class="blog-img-wrap">
+        <img src="images/Thumbnail_6.png" alt="Made in India Dog Products">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Supporting Local</span>
+        <h3 class="blog-card-title">Made in India Dog Products: Supporting Local Makers</h3>
+        <p class="blog-card-excerpt">When you buy from a local maker, your money supports someone's dream directly. That matters more than you think...</p>
+        <div class="blog-card-meta">
+          <div class="blog-card-meta-left">
+            <span>May 2026</span>
+            <span>6 min read</span>
+          </div>
+          <span class="blog-read-link">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-post-7.html" class="blog-card">
+      <div class="blog-img-wrap">
+        <img src="images/Thumbnail_7.png" alt="What to Document About Your Dog">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Documentation</span>
+        <h3 class="blog-card-title">What to Document About Your Dog (Before It's Too Late)</h3>
+        <p class="blog-card-excerpt">Your dog will not be here forever. Right now you think you'll remember everything. In 5 years, you won't...</p>
+        <div class="blog-card-meta">
+          <div class="blog-card-meta-left">
+            <span>May 2026</span>
+            <span>8 min read</span>
+          </div>
+          <span class="blog-read-link">Read →</span>
+        </div>
+      </div>
+    </a>
 
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -329,7 +302,7 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
       <li><a href="story.html">Sherry's story</a></li>
       <li><a href="contact.html">Order enquiry</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#2d45484141426d5a42424b54594c41465e034e4240">Email us</a></li>
+      <li><a href="mailto:hello@woofytalks.com">Email us</a></li>
     </ul></div>
   </div>
   <div class="footer-bottom">
@@ -342,7 +315,7 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
       <a href="https://wa.me/918017860212" target="_blank" class="fsoc" title="WhatsApp">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
       </a>
-      <a href="/cdn-cgi/l/email-protection#1d75787171725d6a72727b64697c71766e337e7270" class="fsoc" title="Email">
+      <a href="mailto:hello@woofytalks.com" class="fsoc" title="Email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
       </a>
     </div>
@@ -350,12 +323,7 @@ footer{background:var(--truffle);color:var(--cream);padding:60px 20px 20px;}
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});
-document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el=>obs.observe(el));
-setTimeout(()=>{document.querySelectorAll('.rev:not(.visible), .rev-l:not(.visible), .rev-r:not(.visible), .rev-s:not(.visible)').forEach(el=>el.classList.add('visible'));},800);
-function toggleMob(){document.getElementById('mob').classList.toggle('open');}
+  window.addEventListener('scroll', () => document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 0));
 </script>
-
 </body>
 </html>
