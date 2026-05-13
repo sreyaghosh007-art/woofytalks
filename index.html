@@ -248,6 +248,29 @@ footer{background:var(--t);color:#fff;padding:0;}
 .modal-success a{display:inline-block;margin-top:20px;background:var(--g);color:#fff;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:bold;transition:all .2s;}
 .modal-success a:hover{background:var(--gd);transform:translateY(-2px);}
 .modal-note{font-size:12px;color:var(--l);text-align:center;margin-top:16px;}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(42,26,14,.4);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.modal.active{display:flex;}
+.modal-content{background:#fff;border-radius:24px;box-shadow:0 25px 50px rgba(42,26,14,.15);max-width:500px;width:90%;max-height:90vh;overflow-y:auto;padding:40px;position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--m);transition:color .2s;}
+.modal-close:hover{color:var(--t);}
+.modal-header{margin-bottom:24px;text-align:center;}
+.modal-header h2{font-family:var(--fh);font-size:28px;font-weight:700;color:var(--t);margin-bottom:8px;}
+.modal-header p{color:var(--m);font-size:14px;}
+.form-fields{display:flex;flex-direction:column;gap:16px;}
+.form-group{display:flex;flex-direction:column;}
+.form-group label{font-size:13px;font-weight:700;color:var(--t);margin-bottom:6px;}
+.form-group input{padding:12px 14px;border:1.5px solid var(--br);border-radius:8px;font-size:15px;font-family:var(--fb);transition:all .2s;}
+.form-group input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(90,175,120,.1);}
+.form-submit{background:var(--g);color:#fff;padding:14px;border-radius:50px;font-size:15px;font-weight:800;border:none;cursor:pointer;transition:all .3s;width:100%;margin-top:8px;}
+.form-submit:hover{background:var(--gd);transform:translateY(-2px);}
+.form-submit:disabled{opacity:.6;cursor:not-allowed;}
+.modal-success{text-align:center;display:none;}
+.modal-success h3{font-family:var(--fh);font-size:32px;color:var(--g);margin-bottom:16px;}
+.modal-success p{color:var(--m);margin-bottom:20px;font-size:15px;}
+.modal-success a{display:inline-block;margin-top:20px;background:var(--g);color:#fff;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:bold;transition:all .2s;}
+.modal-success a:hover{background:var(--gd);transform:translateY(-2px);}
+.modal-note{font-size:12px;color:var(--l);text-align:center;margin-top:16px;}
+
 </style>
 </head>
 <body>
@@ -415,20 +438,7 @@ footer{background:var(--t);color:#fff;padding:0;}
 
 
 
-<section class="newsletter rev-s" id="newsletter">
-<div style="width:56px;height:56px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="width:28px;height:28px;"><path d="M9 3h6a2 2 0 012 2v12a2 2 0 01-2 2H9a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M11 7h2M11 11h2"/></svg>
-</div>
-<span style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:12px;display:block;">FREE FOR YOU</span>
-<h3>Get the Calm Home<br>Checklist</h3>
-<p class="newsletter-sub">completely free.</p>
-<p>The checklist I genuinely wish I had on Day 1 with Sherry. Join the WoofyTalks community and get it instantly in your inbox.</p>
-<div class="newsletter-form">
-<input type="email" id="emailIn" placeholder="your@email.com">
-<button class="email-btn" onclick="handleEmail(this)">Send it to me</button>
-</div>
-<p class="newsletter-note">Occasional journal updates only. Unsubscribe anytime.</p>
-</section>
+
 
 <section class="cta-sec rev">
 <h3>Ready to Honor Your Bond?</h3>
@@ -490,7 +500,13 @@ footer{background:var(--t);color:#fff;padding:0;}
 </div>
 </footer>
 
-<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el=>obs.observe(el));function handleEmail(btn){const v=document.getElementById('emailIn').value;if(!v||!v.includes('@')){document.getElementById('emailIn').style.borderColor='#E85572';btn.textContent='Enter a valid email';setTimeout(()=>{btn.textContent='Send it to me';document.getElementById('emailIn').style.borderColor='';},2000);return;}btn.textContent='Thank you!';btn.style.background='#2E6644';btn.disabled=true;}</script>
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);});const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el=>obs.observe(el));function handleEmail(btn){const v=document.getElementById('emailIn').value;if(!v||!v.includes('@')){document.getElementById('emailIn').style.borderColor='#E85572';btn.textContent='Enter a valid email';setTimeout(()=>{btn.textContent='Send it to me';document.getElementById('emailIn').style.borderColor='';},2000);return;}btn.textContent='Thank you!';btn.style.background='#2E6644';btn.disabled=true;}
+// Auto-open modal on page load
+window.addEventListener('load', function() {
+  openModal();
+});
+
+</script>
 <div class="modal" id="checklistModal">
 <div class="modal-content">
 <button class="modal-close" onclick="closeModal()">✕</button>
@@ -545,6 +561,74 @@ document.getElementById('checklistForm').addEventListener('submit',async functio
   document.getElementById('formContainer').style.display='none';
   document.getElementById('formSuccess').style.display='block';
 });
+
+// Auto-open modal on page load
+window.addEventListener('load', function() {
+  openModal();
+});
+
 </script>
+<div class="modal" id="checklistModal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">✕</button>
+<div id="formContainer">
+<div class="modal-header">
+<h2>Get the Calm Home<br>Checklist</h2>
+<p>completely free.</p>
+</div>
+<form id="checklistForm" class="form-fields">
+<div class="form-group">
+<label for="name">What's your name? *</label>
+<input type="text" id="name" name="name" required placeholder="Enter your name">
+</div>
+<div class="form-group">
+<label for="email">What's your email? *</label>
+<input type="email" id="email" name="email" required placeholder="your@email.com">
+</div>
+<div class="form-group">
+<label for="dogname">What's your dog's name? (optional)</label>
+<input type="text" id="dogname" name="dogname" placeholder="Your dog's name">
+</div>
+<button type="submit" class="form-submit">Get the Checklist</button>
+</form>
+<p class="modal-note">Occasional journal updates only. Unsubscribe anytime.</p>
+</div>
+<div class="modal-success" id="formSuccess">
+<h3>✨ Welcome to WoofyTalks! ✨</h3>
+<p>Your Calm Home Checklist is ready.</p>
+<a href="https://www.canva.com/d/a3AV_3u9bamGD0d" target="_blank">📥 View Checklist</a>
+<p style="margin-top:20px;font-size:14px;color:#6B4F38;">Check your email for updates from WoofyTalks.</p>
+</div>
+</div>
+</div>
+
+<script>
+function openModal(){document.getElementById('checklistModal').classList.add('active');}
+function closeModal(){document.getElementById('checklistModal').classList.remove('active');}
+window.addEventListener('click',function(e){const modal=document.getElementById('checklistModal');if(e.target===modal)closeModal();});
+document.getElementById('checklistForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const dogname=document.getElementById('dogname').value.trim();
+  if(!name||!email||!email.includes('@')){alert('Please fill in your name and valid email');return;}
+  const formId='1FAIpQLSdW6rvGgIw2TaAFPfld2JZmDnZ7X364VcACfdREm8mWrgc5Pw';
+  const formURL=`https://docs.google.com/forms/d/e/${formId}/formResponse`;
+  const formData=new FormData();
+  formData.append('entry.2092238618',name);
+  formData.append('entry.588393791',email);
+  formData.append('entry.479301265',dogname);
+  try{await fetch(formURL,{method:'POST',body:formData,mode:'no-cors'});}catch(err){console.log('Form submitted');}
+  document.getElementById('formContainer').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+});
+
+// Auto-open modal on page load
+window.addEventListener('load', function() {
+  openModal();
+});
+
+</script>
+
 </body>
 </html>
